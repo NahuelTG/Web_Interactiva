@@ -8,29 +8,15 @@ const CircularPath = () => {
   const scroll = useScroll()
   const targetRotation = useSmoothRotation(scroll, 0.1) // Usamos el hook con suavizado
 
-  // Usamos el valor interpolado del hook para rotar el grupo
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = targetRotation.current // Aplicamos la rotación suave
+      const angle = -scroll.offset * Math.PI * 20 // Invertimos el sentido de la rotación
+      groupRef.current.rotation.y = angle
     }
   })
 
   const radius = 5
   const numSpheres = 30
-
-  useFrame(() => {
-    if (groupRef.current) {
-      const angle = scroll.offset * Math.PI * 20
-      groupRef.current.rotation.y = angle
-
-      // Ajustar opacidad según el progreso
-      groupRef.current.children.forEach((child, index) => {
-        const fadeFactor = 1 - Math.abs(index / groupRef.current.children.length - angle)
-        child.material.opacity = Math.max(0, fadeFactor) // Suavizamos opacidad
-        child.material.transparent = true
-      })
-    }
-  })
 
   return (
     <group ref={groupRef}>
@@ -39,7 +25,7 @@ const CircularPath = () => {
         const hue = (i / numSpheres + scroll.offset) % 1 // Color dinámico
         return (
           <mesh key={i} position={[Math.cos(angle) * radius, 0, Math.sin(angle) * radius]}>
-            <sphereGeometry args={[0.3, 16, 16]} />
+            <sphereGeometry args={[0.1, 16, 16]} />
             <meshStandardMaterial
               color={`hsl(${hue * 360}, 70%, 50%)`}
               emissive="white" // Luz emitida
