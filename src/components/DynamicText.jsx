@@ -20,7 +20,7 @@ const DynamicText = () => {
 
   return (
     <Text
-      position={[0, 5, -5]} // Posición del texto
+      position={[0, 0, -5]} // Posición del texto
       fontSize={1}
       color="white"
       anchorX="center"

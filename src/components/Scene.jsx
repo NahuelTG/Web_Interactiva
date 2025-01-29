@@ -14,6 +14,7 @@ import AmbientSound from './AmbientSound'
 import CatSound from './../assets/sounds/gloomy-cat.mp3'
 import { Vector3, Quaternion } from 'three'
 import { useSpring } from '@react-spring/three'
+import FloatingPanel from './FloatingPanel'
 
 const CameraController = () => {
   const { camera } = useThree()
@@ -63,6 +64,7 @@ const Scene = () => {
         <CameraController />
         <CircularPath />
         <FloatingButtons />
+        <FloatingPanel text="Bienvenido al mundo 3D" position={[0, 3, -7]} />
       </ScrollControls>
 
       <ambientLight intensity={0.5} />
