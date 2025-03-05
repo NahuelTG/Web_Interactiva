@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Html } from '@react-three/drei'
 import Test from './../assets/svg/sound.svg'
-import './FloatingPanel.css'
 
 const FloatingPanel = ({ position }) => {
   const panelRef = useRef()

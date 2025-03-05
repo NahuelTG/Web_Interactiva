@@ -3,17 +3,9 @@ import { ScrollControls, useScroll } from '@react-three/drei'
 import CircularPath from './CircularPath'
 import Particles from './Particles'
 import FloatingText from './FloatingText'
-import DynamicText from './DynamicText'
-import MovingLights from './MovingLights'
 import * as THREE from 'three'
 import BackgroundParticles from './BackgroundParticles'
-import CenteredText from './CenteredText'
-import FloatingButtons from './FloatingButtons'
-import RotatingLights from './RotatingLights'
-import AmbientSound from './AmbientSound'
 import CatSound from './../assets/sounds/gloomy-cat.mp3'
-import { Vector3, Quaternion } from 'three'
-import { useSpring } from '@react-spring/three'
 import FloatingPanel from './FloatingPanel'
 
 const CameraController = () => {
@@ -53,17 +45,13 @@ const Scene = () => {
         scene.fog = new THREE.Fog('#0d0d1a', 10, 30)
       }}
     >
-      <MovingLights />
       <BackgroundParticles />
       <Particles />
       <FloatingText />
-      <RotatingLights />
-      <AmbientSound url={CatSound} />
 
       <ScrollControls pages={30} damping={0.1}>
         <CameraController />
         <CircularPath />
-        <FloatingButtons />
         <FloatingPanel text="Bienvenido al mundo 3D" position={[0, 3, -7]} />
       </ScrollControls>
 
