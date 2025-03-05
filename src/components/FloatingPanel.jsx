@@ -1,81 +1,49 @@
-import { useRef, useState } from 'react'
+import { Text, Html } from '@react-three/drei'
+import { useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Html } from '@react-three/drei'
-import Test from './../assets/svg/sound.svg'
 
-const FloatingPanel = ({ position }) => {
-  const panelRef = useRef()
-  const [isHovered, setIsHovered] = useState(false)
-  const [open, setOpen] = useState(false)
-  const [currentVideo, setCurrentVideo] = useState(0)
-
-  const videos = [
-    'https://www.youtube.com/embed/yxrjSE8XddA?si=8V_0hFFv6itw0DJv',
-    'https://www.youtube.com/embed/bjxCH2fX4QU?si=izlkd_vj6dFFiQzc',
-    'https://www.youtube.com/embed/QdBZY2fkU-0?si=qM65SU-7_HM-Kipu',
-  ]
-
-  useFrame(() => {
-    if (panelRef.current) {
-      panelRef.current.lookAt(-45, 0, 0)
-    }
-  })
+const FloatingPanel = ({ position = [0, 1.5, -15] }) => {
+  const [hovered, setHovered] = useState(false)
 
   return (
-    <group ref={panelRef} position={[4, 0.5, -5.5]}>
-      <mesh onPointerOver={() => setIsHovered(true)} onPointerOut={() => setIsHovered(false)} onClick={() => setOpen(true)}>
-        <planeGeometry args={[3, 2]} />
-        <meshStandardMaterial color={isHovered ? '#e0e0e0' : 'white'} transparent opacity={0.9} />
+    <group position={position}>
+      {/* Panel base en 3D */}
+      <mesh
+        position={[0, 0, 0.1]} // Pequeño offset para el texto
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+      >
+        <boxGeometry args={[4, 2.5, 0.2]} /> {/* Ancho, Alto, Profundidad */}
+        <meshStandardMaterial color={hovered ? '#2a2a4a' : '#1a1a2a'} transparent opacity={0.9} />
+        {/* Texto principal */}
+        <Text
+          position={[0, 0.8, 0.11]} // Ligeramente frente al panel
+          fontSize={0.3}
+          color="white"
+          anchorX="center"
+          anchorY="middle"
+        >
+          Panel Informativo
+        </Text>
+        {/* Lista de items */}
+        <Text position={[-1.5, 0, 0.11]} fontSize={0.2} color="#a0a0ff" anchorX="left" anchorY="middle">
+          {`• Opción 1\n• Opción 2\n• Opción 3`}
+        </Text>
+        {/* Botón 3D */}
+        <mesh
+          position={[1.2, -0.8, 0.11]}
+          onClick={(e) => {
+            e.stopPropagation()
+            console.log('Botón presionado!')
+          }}
+        >
+          <boxGeometry args={[1, 0.4, 0.1]} />
+          <meshStandardMaterial color={hovered ? '#4a4a8a' : '#3a3a7a'} />
+          <Text position={[0, 0, 0.06]} fontSize={0.15} color="white" anchorX="center" anchorY="middle">
+            Click aquí
+          </Text>
+        </mesh>
       </mesh>
-
-      <Html center>
-        <div className="panel-content">
-          <img src={Test} alt="Interactive Icon" className="panel-icon" style={{ filter: isHovered ? 'brightness(1.2)' : 'none' }} />
-        </div>
-      </Html>
-
-      {open && (
-        <Html center>
-          <div className="ui-modal">
-            <div className="modal-content">
-              <h2>Video Gallery</h2>
-
-              <div className="video-selector">
-                {videos.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`video-button ${currentVideo === index ? 'active' : ''}`}
-                    onClick={() => setCurrentVideo(index)}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
-              </div>
-
-              <div className="video-container">
-                <iframe
-                  width="560"
-                  height="315"
-                  src={videos[currentVideo]}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-
-              <button
-                className="close-button"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setOpen(false)
-                }}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </Html>
-      )}
     </group>
   )
 }
