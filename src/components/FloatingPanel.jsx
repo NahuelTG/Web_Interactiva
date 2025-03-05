@@ -1,15 +1,17 @@
-import { Text, Html } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 import { useState } from 'react'
-import { useFrame } from '@react-three/fiber'
+//import { useFrame } from '@react-three/fiber'
 
-const FloatingPanel = ({ position = [0, 1.5, -15] }) => {
+const FloatingPanel = ({ position, rotation }) => {
   const [hovered, setHovered] = useState(false)
 
   return (
     <group position={position}>
       {/* Panel base en 3D */}
       <mesh
+        rotation={rotation}
         position={[0, 0, 0.1]} // Pequeño offset para el texto
+        rotateX={Math.PI / 2}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
