@@ -44,7 +44,7 @@ const FloatingPanel = ({ position, rotation }) => {
     const time = state.clock.elapsedTime
     const hoverIntensity = 1.05 + Math.sin(time * 10) * 0.05
     const bounceEffect = 1 + Math.abs(Math.sin(time * 20) * 0.02)
-    const oscillation = Math.sin(time * 2) * 0.02 // Movimiento lateral suave
+    const oscillation = Math.sin(time * 2.5) * 0.075 // Movimiento lateral suave
 
     if (buttonLeftRef.current?.hovered || buttonRightRef.current?.hovered) {
       const target = buttonLeftRef.current?.hovered ? buttonLeftRef : buttonRightRef
@@ -54,8 +54,8 @@ const FloatingPanel = ({ position, rotation }) => {
       target.current.rotation.z = THREE.MathUtils.lerp(target.current.rotation.z, 0.1, 0.1) // Rotación leve
     } else {
       // Movimiento de oscilación cuando NO están en hover
-      buttonLeftRef.current.position.x = THREE.MathUtils.lerp(-6, oscillation, 0.5)
-      buttonRightRef.current.position.x = THREE.MathUtils.lerp(2.85, -oscillation, 0.5)
+      buttonLeftRef.current.position.x = THREE.MathUtils.lerp(-6, oscillation, 0.49)
+      buttonRightRef.current.position.x = THREE.MathUtils.lerp(2.85, -oscillation, 0.49)
 
       // Efecto de rebote
       buttonLeftRef.current.scale.set(
