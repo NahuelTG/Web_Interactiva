@@ -52,7 +52,10 @@ const Scene = () => {
       <ScrollControls pages={30} damping={0.1}>
         <CameraController />
         <CircularPath />
-        <FloatingPanel text="Bienvenido al mundo 3D" position={[0, 3, -7]} />
+        <FloatingPanel position={[6, 1.5, -6]} rotation={[0, THREE.MathUtils.degToRad(270), 0]} />
+        <FloatingPanel position={[7, 1.5, -1]} rotation={[0, THREE.MathUtils.degToRad(230), 0]} />
+        <FloatingPanel position={[4, 1.5, 5]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
+        <FloatingPanel position={[-1, 1.5, -8]} rotation={[0, THREE.MathUtils.degToRad(310), 0]} />
       </ScrollControls>
 
       <ambientLight intensity={0.5} />
