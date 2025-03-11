@@ -41,31 +41,45 @@ const FloatingPanel = ({ position, rotation }) => {
       }
     }
 
-    // Animación de botones al hacer hover
-    const hoverIntensity = Math.sin(state.clock.elapsedTime * 10) * 0.05 + 1
+    const time = state.clock.elapsedTime
+    const hoverIntensity = 1.05 + Math.sin(time * 10) * 0.05
+    const bounceEffect = 1 + Math.abs(Math.sin(time * 20) * 0.02)
+    const oscillation = Math.sin(time * 2) * 0.02 // Movimiento lateral suave
+
     if (buttonLeftRef.current?.hovered || buttonRightRef.current?.hovered) {
       const target = buttonLeftRef.current?.hovered ? buttonLeftRef : buttonRightRef
-      target.current.scale.x = THREE.MathUtils.damp(target.current.scale.x, hoverIntensity, 8, delta)
-      target.current.scale.y = THREE.MathUtils.damp(target.current.scale.y, hoverIntensity, 8, delta)
+
+      target.current.scale.x = THREE.MathUtils.lerp(target.current.scale.x, hoverIntensity, 0.1)
+      target.current.scale.y = THREE.MathUtils.lerp(target.current.scale.y, hoverIntensity, 0.1)
+      target.current.rotation.z = THREE.MathUtils.lerp(target.current.rotation.z, 0.1, 0.1) // Rotación leve
     } else {
-      buttonLeftRef.current.scale.x = THREE.MathUtils.damp(buttonLeftRef.current.scale.x, 1, 8, delta)
-      buttonLeftRef.current.scale.y = THREE.MathUtils.damp(buttonLeftRef.current.scale.y, 1, 8, delta)
-      buttonRightRef.current.scale.x = THREE.MathUtils.damp(buttonRightRef.current.scale.x, 1, 8, delta)
-      buttonRightRef.current.scale.y = THREE.MathUtils.damp(buttonRightRef.current.scale.y, 1, 8, delta)
+      // Movimiento de oscilación cuando NO están en hover
+      buttonLeftRef.current.position.x = THREE.MathUtils.lerp(-6, oscillation, 0.5)
+      buttonRightRef.current.position.x = THREE.MathUtils.lerp(2.85, -oscillation, 0.5)
+
+      // Efecto de rebote
+      buttonLeftRef.current.scale.set(
+        THREE.MathUtils.lerp(buttonLeftRef.current.scale.x, bounceEffect, 0.1),
+        THREE.MathUtils.lerp(buttonLeftRef.current.scale.y, bounceEffect, 0.1),
+        1
+      )
+      buttonRightRef.current.scale.set(
+        THREE.MathUtils.lerp(buttonRightRef.current.scale.x, bounceEffect, 0.1),
+        THREE.MathUtils.lerp(buttonRightRef.current.scale.y, bounceEffect, 0.1),
+        1
+      )
+
+      // Resetear rotación
+      buttonLeftRef.current.rotation.z = THREE.MathUtils.lerp(buttonLeftRef.current.rotation.z, 0, 0.1)
+      buttonRightRef.current.rotation.z = THREE.MathUtils.lerp(buttonRightRef.current.rotation.z, 0, 0.1)
     }
 
-    // Animación de texto en botones
-    textLeftRef.current.position.z = THREE.MathUtils.damp(
-      textLeftRef.current.position.z,
-      buttonLeftRef.current?.hovered ? 0.05 : 0.03,
-      8,
-      delta
-    )
-    textRightRef.current.position.z = THREE.MathUtils.damp(
+    // Animación del texto en el eje Z
+    textLeftRef.current.position.z = THREE.MathUtils.lerp(textLeftRef.current.position.z, buttonLeftRef.current?.hovered ? 0.06 : 0.03, 0.1)
+    textRightRef.current.position.z = THREE.MathUtils.lerp(
       textRightRef.current.position.z,
-      buttonRightRef.current?.hovered ? 0.05 : 0.03,
-      8,
-      delta
+      buttonRightRef.current?.hovered ? 0.06 : 0.03,
+      0.1
     )
   })
 
