@@ -20,7 +20,7 @@ const Scene = () => {
         scene.fog = new THREE.Fog('#0d0d1a', 10, 30)
       }}
       gl={{ antialias: true }} // Suaviza los bordes
-      frameloop="demand" // Optimiza rendimiento
+      frameloop="always" // Optimiza rendimiento
       style={{ position: 'fixed' }} // Asegura posición
     >
       <BackgroundParticles />
