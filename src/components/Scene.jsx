@@ -44,13 +44,16 @@ const Scene = () => {
       onCreated={({ scene }) => {
         scene.fog = new THREE.Fog('#0d0d1a', 10, 30)
       }}
+      gl={{ antialias: true }} // Suaviza los bordes
+      frameloop="demand" // Optimiza rendimiento
+      style={{ position: 'fixed' }} // Asegura posición
     >
       <BackgroundParticles />
       <Particles />
       <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} />
       <FloatingText texto={'De vuelta'} position={[5, 0, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
-      <ScrollControls pages={30} damping={0.1}>
+      <ScrollControls pages={30} damping={0.2}>
         <CameraController />
         <CircularPath />
         <FloatingPanel position={[6, 1.5, -6]} rotation={[0, THREE.MathUtils.degToRad(270), 0]} />
