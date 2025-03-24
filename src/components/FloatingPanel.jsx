@@ -188,8 +188,6 @@ const FloatingPanel = ({ position, rotation }) => {
             </Text>
           </mesh>
         </group>
-
-        {/* ... (Resto del código existente) */}
       </mesh>
     </group>
   )
