@@ -26,11 +26,11 @@ const CircularPath = () => {
           const hue = (i / numSpheres + scroll.offset) % 1 // Color dinámico
           return (
             <mesh key={`${rowIndex}-${i}`} position={[Math.cos(angle) * radius, 0, Math.sin(angle) * radius]}>
-              <sphereGeometry args={[0.05, 16, 16]} />
+              <sphereGeometry args={[0.02, 16, 1]} />
               <meshStandardMaterial
                 color={`hsl(${hue * 360}, 70%, 50%)`}
                 emissive="white" // Luz emitida
-                emissiveIntensity={0.3} // Intensidad del brillo
+                emissiveIntensity={0.5} // Intensidad del brillo
                 metalness={0.5} // Nivel de metal
                 roughness={0.1} // Suavidad del material
               />

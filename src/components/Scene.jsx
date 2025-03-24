@@ -47,7 +47,8 @@ const Scene = () => {
     >
       <BackgroundParticles />
       <Particles />
-      <FloatingText />
+      <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} />
+      <FloatingText texto={'De vuelta'} position={[5, 0, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
       <ScrollControls pages={30} damping={0.1}>
         <CameraController />
@@ -58,7 +59,7 @@ const Scene = () => {
         <FloatingPanel position={[-1, 1.5, -8]} rotation={[0, THREE.MathUtils.degToRad(310), 0]} />
       </ScrollControls>
 
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
     </Canvas>
   )
