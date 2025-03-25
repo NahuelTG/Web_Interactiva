@@ -1,12 +1,11 @@
+/* eslint-disable react/no-unknown-property */
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
-import useSmoothRotation from '../hooks/useSmoothRotation' // Importamos el hook
 
 const CircularPath = () => {
   const groupRef = useRef()
   const scroll = useScroll()
-  const targetRotation = useSmoothRotation(scroll, 0.1) // Usamos el hook con suavizado
 
   useFrame(() => {
     if (groupRef.current) {

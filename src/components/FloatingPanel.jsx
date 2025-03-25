@@ -152,7 +152,7 @@ const FloatingPanel = ({ position, rotation }) => {
           </mesh>
         </group>
 
-        {/* Botones de navegación */}
+        {/* Botones de navegación [0.8, 0, 0.12]  */}
         <group position={[0.8, 0, 0.12]}>
           {/* Botón izquierdo */}
           <mesh
