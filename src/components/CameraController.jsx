@@ -13,7 +13,7 @@ export const CameraController = () => {
   const offset = 0.1 // Pequeña anticipación para que la cámara mire adelante en su trayectoria
 
   // Límites máximos de desplazamiento de la cámara
-  const MAX_ANGLE_X = -(Math.PI / 32) // Límite horizontal reducido
+  const MAX_ANGLE_X = Math.PI / 32 // Límite horizontal reducido
   const MAX_ANGLE_Y = -(Math.PI / 64) // Límite vertical reducido
 
   // Efecto para manejar el movimiento del ratón
