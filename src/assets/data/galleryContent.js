@@ -1,7 +1,7 @@
-import Paisaje_1 from '../assets/images/paisaje_1.jpg'
-import Paisaje_2 from '../assets/images/paisaje_2.jpg'
-import Paisaje_3 from '../assets/images/paisaje_3.jpg'
-import Paisaje_4 from '../assets/images/paisaje_4.jpg'
+import Paisaje_1 from '../../assets/images/paisaje_1.jpg'
+import Paisaje_2 from '../../assets/images/paisaje_2.jpg'
+import Paisaje_3 from '../../assets/images/paisaje_3.jpg'
+import Paisaje_4 from '../../assets/images/paisaje_4.jpg'
 
 export const galleryContent = [
   {

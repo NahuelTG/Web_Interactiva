@@ -3,13 +3,10 @@ import * as THREE from 'three'
 import { Text, useTexture } from '@react-three/drei'
 import { useState, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
-import Paisaje_1 from '../assets/images/paisaje_1.jpg'
-import Paisaje_2 from '../assets/images/paisaje_2.jpg'
-import Paisaje_3 from '../assets/images/paisaje_3.jpg'
-import Paisaje_4 from '../assets/images/paisaje_4.jpg'
 
-const FloatingPanel = ({ position, rotation }) => {
+const FloatingPanel = ({ position, rotation, images }) => {
   const [hovered, setHovered] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [transitionProgress, setTransitionProgress] = useState(1)
@@ -20,14 +17,6 @@ const FloatingPanel = ({ position, rotation }) => {
   const textRightRef = useRef()
   const panelRef = useRef()
   const emissiveIntensity = useRef(0)
-
-  // Configuración de imágenes y sus links
-  const images = [
-    { src: Paisaje_1, link: 'https://youtu.be/P6QLFeORQyg?si=LNuj7MU_7Kh5mmoy' },
-    { src: Paisaje_2, link: 'https://youtu.be/QFqQ4S4y-RY?si=to12x-gTaqBl7n2C' },
-    { src: Paisaje_3, link: 'https://youtu.be/H3doqnzj8bc?si=EbGNO73wrsMi6Ntu' },
-    { src: Paisaje_4, link: '#' },
-  ]
 
   // Precargar todas las texturas
   const textures = useTexture(images.map((img) => img.src))
@@ -152,6 +141,7 @@ const FloatingPanel = ({ position, rotation }) => {
           </mesh>
         </group>
 
+        <ButtonsNavigationPanel position={[0.8, 0, 0.12]} images={images} setTargetIndex={setTargetIndex} />
         {/* Botones de navegación [0.8, 0, 0.12]  */}
         <group position={[0.8, 0, 0.12]}>
           {/* Botón izquierdo */}
@@ -228,6 +218,15 @@ const FloatingPanel = ({ position, rotation }) => {
 FloatingPanel.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.oneOfType([
+        PropTypes.string, // Para rutas estáticas
+        PropTypes.object, // Para módulos importados (como las imágenes importadas)
+      ]).isRequired,
+      link: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 }
 
 export default FloatingPanel
