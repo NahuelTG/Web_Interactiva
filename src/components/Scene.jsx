@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Canvas } from '@react-three/fiber'
 import { ScrollControls } from '@react-three/drei'
 import CircularPath from './CircularPath'
@@ -6,7 +7,7 @@ import FloatingText from './FloatingText'
 import * as THREE from 'three'
 import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
-import CatSound from './../assets/sounds/gloomy-cat.mp3'
+//import CatSound from './../assets/sounds/gloomy-cat.mp3'
 import FloatingPanel from './FloatingPanel'
 
 const Scene = () => {

@@ -1,7 +1,9 @@
+/* eslint-disable react/no-unknown-property */
 import * as THREE from 'three'
 import { Text, useTexture } from '@react-three/drei'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import PropTypes from 'prop-types'
 import Paisaje_1 from '../assets/images/paisaje_1.jpg'
 import Paisaje_2 from '../assets/images/paisaje_2.jpg'
 import Paisaje_3 from '../assets/images/paisaje_3.jpg'
@@ -16,6 +18,8 @@ const FloatingPanel = ({ position, rotation }) => {
   const buttonRightRef = useRef()
   const textLeftRef = useRef()
   const textRightRef = useRef()
+  const panelRef = useRef()
+  const emissiveIntensity = useRef(0)
 
   // Configuración de imágenes y sus links
   const images = [
@@ -30,6 +34,21 @@ const FloatingPanel = ({ position, rotation }) => {
 
   // Animación de transición
   useFrame((state, delta) => {
+    // Animación del panel principal
+    if (panelRef.current) {
+      // Escala suave al hacer hover
+      const targetScale = hovered ? 1.02 : 1
+      panelRef.current.scale.x = THREE.MathUtils.lerp(panelRef.current.scale.x, targetScale, 0.1)
+      panelRef.current.scale.y = THREE.MathUtils.lerp(panelRef.current.scale.y, targetScale, 0.1)
+
+      // Efecto de "levitación" suave
+      const floatIntensity = hovered ? 0.02 : 0.01
+      panelRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * floatIntensity
+
+      // Efecto emissivo suave
+      emissiveIntensity.current = THREE.MathUtils.lerp(emissiveIntensity.current, hovered ? 0.3 : 0, 0.1)
+    }
+
     // Animación de transición
     if (currentImageIndex !== targetIndex) {
       const newProgress = THREE.MathUtils.damp(transitionProgress, 1, 6, delta)
@@ -96,9 +115,22 @@ const FloatingPanel = ({ position, rotation }) => {
 
   return (
     <group position={position}>
-      <mesh rotation={rotation} position={[0, 0, 0.1]} onPointerOver={() => setHovered(true)} onPointerOut={() => setHovered(false)}>
+      <mesh
+        rotation={rotation}
+        position={[0, 0, 0.1]}
+        onPointerOver={(e) => {
+          e.stopPropagation()
+          setHovered(true)
+          document.body.style.cursor = 'pointer'
+        }}
+        onPointerOut={() => {
+          setHovered(false)
+          document.body.style.cursor = 'auto'
+        }}
+        ref={panelRef} // Añadir esta referencia
+      >
         <boxGeometry args={[4, 2.5, 0.2]} />
-        <meshStandardMaterial color={hovered ? '#2a2a4a' : '#1a1a2a'} transparent opacity={0.9} />
+        <meshStandardMaterial color="#1a1a2a" emissive="#3ff" emissiveIntensity={emissiveIntensity.current} transparent opacity={0.9} />
 
         {/* Contenedor de la imagen con transición */}
         <group position={[0, 0, 0.11]} scale={[2, 2.1, 0.1]}>
@@ -191,6 +223,11 @@ const FloatingPanel = ({ position, rotation }) => {
       </mesh>
     </group>
   )
+}
+
+FloatingPanel.propTypes = {
+  position: PropTypes.array,
+  rotation: PropTypes.array,
 }
 
 export default FloatingPanel

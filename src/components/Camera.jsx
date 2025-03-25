@@ -1,7 +1,6 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import { useScroll } from '@react-three/drei'
 import { Vector3, Quaternion } from 'three'
-import { useSpring } from '@react-spring/web'
 
 export const CAMERA_CONFIG = {
   fov: 58,
@@ -17,12 +16,7 @@ export const CinematicCamera = () => {
   const vec = new Vector3()
   const quat = new Quaternion()
 
-  const { pos } = useSpring({
-    pos: CAMERA_CONFIG.position,
-    config: { mass: 1, tension: 180, friction: 30 },
-  })
-
-  useFrame((state, delta) => {
+  useFrame((delta) => {
     const scrollProgress = scroll.offset * 2
     const angle = scrollProgress * Math.PI * 1.5
     const radius = 8 + scrollProgress * 4
