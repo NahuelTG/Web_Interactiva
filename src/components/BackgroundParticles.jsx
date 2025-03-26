@@ -1,5 +1,6 @@
 import { Points, PointMaterial } from '@react-three/drei'
 import { useMemo } from 'react'
+import PropTypes from 'prop-types'
 
 const BackgroundParticles = ({ count = 1000 }) => {
   const particles = useMemo(() => {
@@ -17,6 +18,9 @@ const BackgroundParticles = ({ count = 1000 }) => {
       <PointMaterial transparent color="white" size={0.5} sizeAttenuation />
     </Points>
   )
+}
+BackgroundParticles.propTypes = {
+  count: PropTypes.number,
 }
 
 export default BackgroundParticles
