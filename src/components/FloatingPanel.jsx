@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
 import { useState, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
 
@@ -92,6 +93,7 @@ const FloatingPanel = ({ position, rotation, images }) => {
           transitionProgress={transitionProgress}
           setTransitionProgress={setTransitionProgress}
         />
+        <PanelTitle texto={'Panel'} position={[0, 0, 0.2]} rotation={[0, THREE.MathUtils.degToRad(0), 0]} />
       </mesh>
     </group>
   )

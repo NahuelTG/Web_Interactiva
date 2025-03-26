@@ -1,0 +1,136 @@
+/* eslint-disable react/no-unknown-property */
+import { Text, Sparkles } from '@react-three/drei'
+import PropTypes from 'prop-types'
+import * as THREE from 'three'
+import { useRef, useState } from 'react'
+import { useFrame } from '@react-three/fiber'
+
+export const PanelTitle = ({ texto, position, rotation, scale = 1 }) => {
+  const sphereRef = useRef()
+  const barRef = useRef()
+  const shockwaveRef = useRef()
+  const [hovered, setHovered] = useState(false)
+  const [clicked, setClicked] = useState(false)
+  const [clickAnimProgress, setClickAnimProgress] = useState(0)
+  const [showShockwave, setShowShockwave] = useState(false)
+  const [showParticles, setShowParticles] = useState(false)
+  const initialY = useRef(0.6)
+  const timeOffset = useRef(Math.random() * 1000)
+
+  useFrame((state, delta) => {
+    // Animación base flotante
+    sphereRef.current.position.y = initialY.current + Math.sin(state.clock.elapsedTime * 2 + timeOffset.current) * 0.1
+
+    // Efecto de click
+    if (clicked) {
+      setClickAnimProgress((prev) => Math.min(prev + delta * 5, 1))
+
+      // Escala animada con curva de bounce
+      const bounceScale = 1 + Math.sin(clickAnimProgress * Math.PI) * 0.5
+      sphereRef.current.scale.set(bounceScale, bounceScale, bounceScale)
+
+      // Rotación intensa
+      sphereRef.current.rotation.z += delta * 10
+
+      // Color dinámico
+      sphereRef.current.material.color.lerp(new THREE.Color(Math.random() * 0.5 + 0.5, 0.2, 1), delta * 2)
+    } else {
+      // Reset de animaciones
+      sphereRef.current.scale.x = THREE.MathUtils.damp(sphereRef.current.scale.x, 1, 6, delta)
+      sphereRef.current.scale.y = THREE.MathUtils.damp(sphereRef.current.scale.y, 1, 6, delta)
+      sphereRef.current.material.color.lerp(new THREE.Color('#00ffff'), delta * 2)
+    }
+
+    // Animación de onda de choque
+    if (showShockwave && shockwaveRef.current) {
+      shockwaveRef.current.scale.x = THREE.MathUtils.damp(shockwaveRef.current.scale.x, 5, 4, delta)
+      shockwaveRef.current.scale.y = THREE.MathUtils.damp(shockwaveRef.current.scale.y, 5, 4, delta)
+      shockwaveRef.current.material.opacity = THREE.MathUtils.damp(shockwaveRef.current.material.opacity, 0, 4, delta)
+    }
+
+    // Animación de la barra
+    barRef.current.material.emissiveIntensity = THREE.MathUtils.lerp(barRef.current.material.emissiveIntensity, hovered ? 2 : 0.5, 0.1)
+  })
+
+  const handleClick = (e) => {
+    e.stopPropagation()
+    setClicked(true)
+    setShowShockwave(true)
+    setShowParticles(true)
+
+    // Resetear efectos después de 0.5s
+    setTimeout(() => {
+      setClicked(false)
+      setClickAnimProgress(0)
+      setShowShockwave(false)
+      setShowParticles(false)
+      shockwaveRef.current.scale.set(0.1, 0.1, 0.1)
+      shockwaveRef.current.material.opacity = 1
+    }, 500)
+  }
+
+  return (
+    <group position={position} rotation={rotation} scale={scale}>
+      <Text position={[0.6, 0, 0]} fontSize={0.5} color="white" anchorX="center" anchorY="middle">
+        {texto}
+      </Text>
+
+      {/* Barra interactiva */}
+      <mesh
+        ref={barRef}
+        position={[-0.6, 0, 0]}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        onClick={handleClick}
+      >
+        <cylinderGeometry args={[0.03, 0.03, 1.2, 32]} />
+        <meshPhongMaterial color="#00ffff" emissive="#00ff88" emissiveIntensity={0.5} />
+      </mesh>
+
+      {/* Esfera principal */}
+      <mesh
+        ref={sphereRef}
+        position={[-0.6, initialY.current, 0]}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+      >
+        <sphereGeometry args={[0.08, 32, 32]} />
+        <meshPhongMaterial color="#00ffff" emissive="#006666" emissiveIntensity={0.8} shininess={100} />
+      </mesh>
+
+      {/* Onda de choque */}
+      {showShockwave && (
+        <mesh ref={shockwaveRef} position={[-0.6, initialY.current, 0]}>
+          <ringGeometry args={[0.1, 0.15, 32]} />
+          <meshStandardMaterial color="#00ffff" transparent opacity={1} emissive="#00ffff" emissiveIntensity={2} />
+        </mesh>
+      )}
+
+      {/* Efecto de partículas */}
+      {showParticles && (
+        <Sparkles
+          position={[-0.6, initialY.current, 0]}
+          count={20}
+          speed={1}
+          scale={[0.5, 0.5, 0.5]}
+          size={1}
+          color="#00ffff"
+          noise={0.2}
+        />
+      )}
+    </group>
+  )
+}
+
+PanelTitle.propTypes = {
+  texto: PropTypes.string,
+  position: PropTypes.array,
+  rotation: PropTypes.array,
+  scale: PropTypes.number,
+}
+
+PanelTitle.defaultProps = {
+  position: [0, 0, 0],
+  rotation: [0, 0, 0],
+  scale: 1,
+}
