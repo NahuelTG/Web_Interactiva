@@ -7,7 +7,7 @@ import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
 
-const FloatingPanel = ({ position, rotation, images }) => {
+const FloatingPanel = ({ position, rotation, images, scale = 0.1 }) => {
   const [hovered, setHovered] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [transitionProgress, setTransitionProgress] = useState(1)
@@ -48,7 +48,7 @@ const FloatingPanel = ({ position, rotation, images }) => {
   })
 
   return (
-    <group position={position}>
+    <group position={position} scale={scale}>
       <mesh
         rotation={rotation}
         position={[0, 0, 0.1]}
@@ -93,7 +93,7 @@ const FloatingPanel = ({ position, rotation, images }) => {
           transitionProgress={transitionProgress}
           setTransitionProgress={setTransitionProgress}
         />
-        <PanelTitle texto={'Panel'} position={[0, 0, 0.2]} rotation={[0, THREE.MathUtils.degToRad(0), 0]} />
+        <PanelTitle texto={'Panel'} position={[3.2, 0, 0.2]} rotation={[0, THREE.MathUtils.degToRad(-30), 0]} />
       </mesh>
     </group>
   )
@@ -102,6 +102,7 @@ const FloatingPanel = ({ position, rotation, images }) => {
 FloatingPanel.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
+  scale: PropTypes.number,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.oneOfType([
