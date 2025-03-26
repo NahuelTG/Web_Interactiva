@@ -1,12 +1,11 @@
 /* eslint-disable react/no-unknown-property */
 import * as THREE from 'three'
 import { Text } from '@react-three/drei'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import PropTypes from 'prop-types'
 
-export const ButtonsNavigationPanel = ({ position, images, setTargetIndex }) => {
-  const [transitionProgress, setTransitionProgress] = useState(1)
+export const ButtonsNavigationPanel = ({ position, images, setTargetIndex, transitionProgress, setTransitionProgress }) => {
   const buttonLeftRef = useRef()
   const buttonRightRef = useRef()
   const textLeftRef = useRef()
@@ -139,6 +138,8 @@ export const ButtonsNavigationPanel = ({ position, images, setTargetIndex }) => 
 ButtonsNavigationPanel.propTypes = {
   position: PropTypes.array,
   setTargetIndex: PropTypes.func.isRequired,
+  transitionProgress: PropTypes.func.isRequired,
+  setTransitionProgress: PropTypes.func.isRequired,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.oneOfType([
