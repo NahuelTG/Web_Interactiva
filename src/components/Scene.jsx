@@ -28,15 +28,12 @@ const Scene = () => {
       <BackgroundParticles />
       <Particles />
       <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} />
-      <FloatingText texto={'De vuelta'} position={[5, 0, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
+      <FloatingText texto={'De vuelta'} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
       <ScrollControls pages={30} damping={0.2}>
         <CameraController />
         <CircularPath />
-        <FloatingPanel position={[1, 0.35, -5.25]} rotation={[0, THREE.MathUtils.degToRad(270), 0]} images={galleryContent} />
-        <FloatingPanel position={[4, 1, -1]} rotation={[0, THREE.MathUtils.degToRad(230), 0]} images={galleryContent} />
-        <FloatingPanel position={[1, 1, 5]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} images={galleryContent} />
-        <FloatingPanel position={[-5, 1, -8]} rotation={[0, THREE.MathUtils.degToRad(310), 0]} images={galleryContent} />
+        <FloatingPanel position={[5.3, 0.35, 1]} rotation={[0, THREE.MathUtils.degToRad(180), 0]} images={galleryContent} title={'Hola'} />
       </ScrollControls>
 
       <ambientLight intensity={1} />
