@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { ParticlesSphere } from './effects/ParticlesSphere'
 
-export const PanelTitle = ({ title, subtitle, position, rotation, scale = 1 }) => {
+export const PanelTitle = ({ video_title, title, subtitle, position, rotation, scale = 1 }) => {
   const sphereRef = useRef()
   const barRef = useRef()
   const shockwaveRef = useRef()
@@ -85,11 +85,27 @@ export const PanelTitle = ({ title, subtitle, position, rotation, scale = 1 }) =
         depthOffset={1}
         letterSpacing={0.05}
       >
+        {video_title}
+      </Text>
+      <Text
+        position={[0, -0.2, 0]} // Ajustado a la derecha
+        fontSize={0.3}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+      >
         {title}
       </Text>
 
       <Text
-        position={[0, -0.2, 0]} // Ajustado a la derecha
+        position={[0, -0.7, 0]} // Ajustado a la derecha
         fontSize={0.3}
         color="#cceeff"
         anchorX="left"
@@ -151,6 +167,7 @@ PanelTitle.propTypes = {
   scale: PropTypes.number,
   subtitle: PropTypes.string,
   title: PropTypes.string,
+  video_title: PropTypes.string,
 }
 
 PanelTitle.defaultProps = {

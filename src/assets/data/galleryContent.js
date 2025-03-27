@@ -10,22 +10,37 @@ import VR_5 from '../images/VR/5.webp'
 
 export const galleryContent = [
   {
+    video_title: 'Paseo con dinosaurios',
+    title: 'Experiencias Inmersivas',
+    subtitle: 'Summergo Lab',
     src: VR_1,
     link: 'https://youtu.be/VCJFPE6fOqQ',
   },
   {
+    video_title: 'Castañas y pascanas',
+    title: 'Experiencias Inmersivas',
+    subtitle: 'Summergo Lab',
     src: VR_2,
     link: 'https://youtu.be/nStunHo9IFo',
   },
   {
+    video_title: 'Tu dolor en mis ojos',
+    title: 'Experiencias Inmersivas',
+    subtitle: 'Summergo Lab',
     src: VR_3,
     link: 'https://youtu.be/LsN2bvDQo-4',
   },
   {
+    video_title: 'Portal Bolivia Inmersiva',
+    title: 'Experiencias Inmersivas',
+    subtitle: 'Summergo Lab',
     src: VR_4,
     link: 'https://youtu.be/jIaPBCX80tc',
   },
   {
+    video_title: 'Leer El Cielo XR',
+    title: 'Experiencias Inmersivas',
+    subtitle: 'Summergo Lab',
     src: VR_5,
     link: 'https://youtu.be/O5UTM-V1pQ0',
   },
