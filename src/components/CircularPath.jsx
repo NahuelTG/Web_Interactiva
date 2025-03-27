@@ -9,7 +9,9 @@ const CircularPath = () => {
 
   useFrame(() => {
     if (groupRef.current) {
-      const angle = -scroll.offset * Math.PI * 20 // Invertimos el sentido de la rotación
+      // Usar scroll invertido para la rotación
+      const invertedOffset = 1 + scroll.offset
+      const angle = invertedOffset * Math.PI * 20
       groupRef.current.rotation.y = angle
     }
   })
