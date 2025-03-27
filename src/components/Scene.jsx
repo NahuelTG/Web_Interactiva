@@ -65,7 +65,7 @@ const Scene = () => {
           <CameraController />
           <CircularPath />
           <FloatingPanel
-            position={[5.3, 0.35, 1]}
+            position={[5.15, 0.35, 1.5]}
             rotation={[0, THREE.MathUtils.degToRad(180), 0]}
             galleryContent={galleryContent}
             title={'Experiencias inmersivas'}
