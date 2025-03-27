@@ -33,7 +33,13 @@ const Scene = () => {
       <ScrollControls pages={30} damping={0.2}>
         <CameraController />
         <CircularPath />
-        <FloatingPanel position={[5.3, 0.35, 1]} rotation={[0, THREE.MathUtils.degToRad(180), 0]} images={galleryContent} title={'Hola'} />
+        <FloatingPanel
+          position={[5.3, 0.35, 1]}
+          rotation={[0, THREE.MathUtils.degToRad(180), 0]}
+          images={galleryContent}
+          title={'Experiencias inmersivas'}
+          subtitle={'Summergo Lab'}
+        />
       </ScrollControls>
 
       <ambientLight intensity={1} />

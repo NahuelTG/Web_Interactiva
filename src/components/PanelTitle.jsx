@@ -74,7 +74,7 @@ export const PanelTitle = ({ title, subtitle, position, rotation, scale = 1 }) =
     <group position={position} rotation={rotation} scale={scale}>
       <Text
         position={[0, 0.5, 0]} // Ajustado a la derecha
-        fontSize={0.7}
+        fontSize={0.5}
         color="#3fffff"
         anchorX="left"
         anchorY="middle"
@@ -90,11 +90,10 @@ export const PanelTitle = ({ title, subtitle, position, rotation, scale = 1 }) =
 
       <Text
         position={[0, -0.2, 0]} // Ajustado a la derecha
-        fontSize={0.4}
+        fontSize={0.3}
         color="#cceeff"
         anchorX="left"
         anchorY="middle"
-        maxWidth={2}
         lineHeight={1.2}
         textAlign="right"
         fillOpacity={0.8}
