@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import PropTypes from 'prop-types'
 
-export const ButtonsNavigationPanel = ({ position, images, setTargetIndex, transitionProgress, setTransitionProgress }) => {
+export const ButtonsNavigationPanel = ({ position, setTargetIndex, totalItems, transitionProgress, setTransitionProgress }) => {
   const buttonLeftRef = useRef()
   const buttonRightRef = useRef()
   const textLeftRef = useRef()
@@ -54,11 +54,10 @@ export const ButtonsNavigationPanel = ({ position, images, setTargetIndex, trans
     )
   })
 
-  const changeImage = (direction) => {
-    // Solo permitir cambio si no hay transición en curso
+  const changeMedia = (direction) => {
     if (transitionProgress >= 0.95) {
       setTargetIndex((prev) => {
-        const newIndex = (prev + direction + images.length) % images.length
+        const newIndex = (prev + direction + totalItems) % totalItems
         setTransitionProgress(0)
         return newIndex
       })
@@ -72,7 +71,7 @@ export const ButtonsNavigationPanel = ({ position, images, setTargetIndex, trans
         rotation={[THREE.MathUtils.degToRad(90), 0, 0]}
         onClick={(e) => {
           e.stopPropagation()
-          changeImage(-1)
+          changeMedia(-1)
         }}
         onPointerOver={() => {
           document.body.style.cursor = 'pointer'
@@ -105,7 +104,7 @@ export const ButtonsNavigationPanel = ({ position, images, setTargetIndex, trans
         rotation={[THREE.MathUtils.degToRad(90), 0, 0]}
         onClick={(e) => {
           e.stopPropagation()
-          changeImage(1)
+          changeMedia(1)
         }}
         onPointerOver={() => {
           document.body.style.cursor = 'pointer'
@@ -140,6 +139,7 @@ ButtonsNavigationPanel.propTypes = {
   setTargetIndex: PropTypes.func.isRequired,
   transitionProgress: PropTypes.func.isRequired,
   setTransitionProgress: PropTypes.func.isRequired,
+  totalItems: PropTypes.number,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       src: PropTypes.oneOfType([
