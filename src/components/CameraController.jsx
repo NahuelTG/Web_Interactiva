@@ -8,12 +8,9 @@ export const CameraController = () => {
   const mousePositionRef = useRef({ x: 0, y: 0 })
   const smoothMouseRef = useRef({ x: 0, y: 0 })
   const angleRef = useRef(0)
-  const lastDirectionRef = useRef(1)
-  const lastPageRef = useRef(0)
 
   const radius = 5
   const altura = 0.3
-  const offset = 0.1
 
   const MAX_ANGLE_X = Math.PI / 32
   const MAX_ANGLE_Y = -(Math.PI / 64)
@@ -22,7 +19,9 @@ export const CameraController = () => {
     const handleMouseMove = (event) => {
       const x = (event.clientX / window.innerWidth) * 2 - 1
       const y = -(event.clientY / window.innerHeight) * 2 + 1
-      mousePositionRef.current = { x, y }
+
+      // Invert the X-axis movement by multiplying by -1
+      mousePositionRef.current = { x: -x, y }
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -32,42 +31,39 @@ export const CameraController = () => {
   }, [])
 
   useFrame(() => {
-    if (scroll) {
-      angleRef.current = -scroll.offset * Math.PI * 2
-    }
+    // Invertir completamente el scroll multiplicando por -1
+    const invertedOffset = 1 + scroll.offset
+    angleRef.current = invertedOffset * Math.PI * 2
 
-    const totalPages = 30
-    const currentPage = Math.floor(scroll.offset * totalPages)
-
-    // Detectar cambio de dirección
-    if (currentPage !== lastPageRef.current) {
-      // Lógica para determinar cambio de dirección
-      if (currentPage < lastPageRef.current) {
-        lastDirectionRef.current *= -1
-      }
-      lastPageRef.current = currentPage
-    }
-
+    // Calcular posición base
     const basePosX = Math.cos(angleRef.current) * radius
     const basePosZ = Math.sin(angleRef.current) * radius
 
-    // Suavizado y límites
+    // Suavizado del mouse
     smoothMouseRef.current.x += (mousePositionRef.current.x - smoothMouseRef.current.x) * 0.1
     smoothMouseRef.current.y += (mousePositionRef.current.y - smoothMouseRef.current.y) * 0.1
 
-    // Ajustar límite horizontal con dirección actual
-    const limitedX = Math.max(Math.min(smoothMouseRef.current.x, 1), -1) * MAX_ANGLE_X * lastDirectionRef.current
+    // Aplicar límites
+    const limitedX = Math.max(Math.min(smoothMouseRef.current.x, 1), -1) * MAX_ANGLE_X
     const limitedY = Math.max(Math.min(smoothMouseRef.current.y, 1), -1) * MAX_ANGLE_Y
 
-    // Aplicar desplazamiento
+    // Calcular offsets
     const offsetX = Math.sin(limitedX)
     const offsetY = Math.sin(limitedY)
 
-    camera.position.set(basePosX + offsetX, altura + offsetY, basePosZ)
+    // Posición de la cámara con desplazamiento invertido en X
+    camera.position.set(
+      basePosX + offsetX, // Invertir el signo aquí para invertir el movimiento en X
+      altura + offsetY,
+      basePosZ - offsetX * 0.5
+    )
 
-    // Punto de mira ajustado
-    const lookAtX = Math.cos(angleRef.current + offset) * radius
-    const lookAtZ = Math.sin(angleRef.current + offset) * radius
+    // Punto de mira adelantado
+    const lookAhead = 0.2 // Ajustar este valor para cambiar la anticipación
+    const lookAtAngle = angleRef.current + lookAhead
+    const lookAtX = Math.cos(lookAtAngle) * radius
+    const lookAtZ = Math.sin(lookAtAngle) * radius
+
     camera.lookAt(lookAtX, altura, lookAtZ)
   })
 
