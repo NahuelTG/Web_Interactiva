@@ -7,16 +7,16 @@ import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
 
-const FloatingPanel = ({ position, rotation, images, scale = 0.1 }) => {
+const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
   const [hovered, setHovered] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [transitionProgress, setTransitionProgress] = useState(1)
   const [targetIndex, setTargetIndex] = useState(0)
   const panelRef = useRef()
   const emissiveIntensity = useRef(0)
 
   // Precargar todas las texturas
-  const textures = useTexture(images.map((img) => img.src))
+  const textures = useTexture(galleryContent.map((img) => img.img))
 
   // Animación de transición
   useFrame((state, delta) => {
@@ -36,12 +36,12 @@ const FloatingPanel = ({ position, rotation, images, scale = 0.1 }) => {
     }
 
     // Animación de transición
-    if (currentImageIndex !== targetIndex) {
+    if (currentIndex !== targetIndex) {
       const newProgress = THREE.MathUtils.damp(transitionProgress, 1, 6, delta)
       setTransitionProgress(newProgress)
 
       if (newProgress > 0.99) {
-        setCurrentImageIndex(targetIndex)
+        setCurrentIndex(targetIndex)
         setTransitionProgress(1)
       }
     }
@@ -72,11 +72,11 @@ const FloatingPanel = ({ position, rotation, images, scale = 0.1 }) => {
           <mesh
             onClick={(e) => {
               e.stopPropagation()
-              window.open(images[currentImageIndex].link, '_blank')
+              window.open(galleryContent[currentIndex].link, '_blank')
             }}
           >
             <planeGeometry args={[2, 1.2]} />
-            <meshStandardMaterial map={textures[currentImageIndex]} transparent opacity={1 - transitionProgress} />
+            <meshStandardMaterial map={textures[currentIndex]} transparent opacity={1 - transitionProgress} />
           </mesh>
 
           {/* Imagen siguiente */}
@@ -88,12 +88,21 @@ const FloatingPanel = ({ position, rotation, images, scale = 0.1 }) => {
 
         <ButtonsNavigationPanel
           position={[0.8, 0, 0.12]}
-          images={images}
+          galleryContent={galleryContent}
           setTargetIndex={setTargetIndex}
+          totalItems={galleryContent.length}
           transitionProgress={transitionProgress}
           setTransitionProgress={setTransitionProgress}
+          currentIndex={currentIndex}
         />
-        <PanelTitle texto={'Panel'} position={[3.2, 0, 0.2]} rotation={[0, THREE.MathUtils.degToRad(-30), 0]} />
+        <PanelTitle
+          title={galleryContent[targetIndex].title} // Usar targetIndex en lugar de currentIndex
+          subtitle={galleryContent[targetIndex].subtitle}
+          video_title={galleryContent[targetIndex].video_title}
+          position={[3.2, 0, 0.2]}
+          rotation={[0, THREE.MathUtils.degToRad(-30), 0]}
+          transitionProgress={transitionProgress} // Pasar el progreso de transición
+        />
       </mesh>
     </group>
   )
@@ -103,12 +112,14 @@ FloatingPanel.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
   scale: PropTypes.number,
-  images: PropTypes.arrayOf(
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  galleryContent: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.oneOfType([
-        PropTypes.string, // Para rutas estáticas
-        PropTypes.object, // Para módulos importados (como las imágenes importadas)
-      ]).isRequired,
+      video_title: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
   ).isRequired,

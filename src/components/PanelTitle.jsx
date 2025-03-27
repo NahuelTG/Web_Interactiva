@@ -6,7 +6,10 @@ import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { ParticlesSphere } from './effects/ParticlesSphere'
 
-export const PanelTitle = ({ texto, position, rotation, scale = 1 }) => {
+export const PanelTitle = ({ video_title, title, subtitle, position, rotation, scale = 1, transitionProgress }) => {
+  const titleRef = useRef()
+  const subtitleRef = useRef()
+  const videoTitleRef = useRef()
   const sphereRef = useRef()
   const barRef = useRef()
   const shockwaveRef = useRef()
@@ -20,6 +23,13 @@ export const PanelTitle = ({ texto, position, rotation, scale = 1 }) => {
   const [particlesVisible, setParticlesVisible] = useState(true)
 
   useFrame((state, delta) => {
+    // Animación de entrada/salida
+    const opacity = 1 - Math.abs(transitionProgress - 0.5) * 2
+
+    titleRef.current.material.opacity = opacity
+    subtitleRef.current.material.opacity = opacity
+    videoTitleRef.current.material.opacity = opacity
+
     // Animación base flotante
     sphereRef.current.position.y = initialY.current + Math.sin(state.clock.elapsedTime * 2 + timeOffset.current) * 0.1
 
@@ -67,13 +77,64 @@ export const PanelTitle = ({ texto, position, rotation, scale = 1 }) => {
       setParticleSize(1) // Tamaño máximo de partículas
       shockwaveRef.current.scale.set(0.1, 0.1, 0.1)
       shockwaveRef.current.material.opacity = 1
-    }, 300)
+    }, 500)
   }
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
-      <Text position={[0.6, 0, 0]} fontSize={0.5} color="white" anchorX="center" anchorY="middle">
-        {texto}
+      <Text
+        ref={videoTitleRef}
+        position={[0, 0.5, 0]} // Ajustado a la derecha
+        fontSize={0.5}
+        color="#3fffff"
+        anchorX="left"
+        anchorY="middle"
+        outlineWidth={0.02}
+        outlineColor="#99ffff"
+        strokeWidth={0.005}
+        strokeColor="#ffffff"
+        depthOffset={1}
+        letterSpacing={0.05}
+        transparent
+      >
+        {video_title}
+      </Text>
+      <Text
+        ref={titleRef}
+        position={[0, -0.2, 0]} // Ajustado a la derecha
+        fontSize={0.3}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+        transparent
+      >
+        {title}
+      </Text>
+
+      <Text
+        ref={subtitleRef}
+        position={[0, -0.7, 0]} // Ajustado a la derecha
+        fontSize={0.3}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+        transparent
+      >
+        {subtitle}
       </Text>
 
       {/* Barra interactiva */}
@@ -120,6 +181,10 @@ PanelTitle.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
   scale: PropTypes.number,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  video_title: PropTypes.string,
+  transitionProgress: PropTypes.func.isRequired,
 }
 
 PanelTitle.defaultProps = {
