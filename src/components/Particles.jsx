@@ -1,7 +1,8 @@
 import { useMemo } from 'react'
 import { Points, PointMaterial } from '@react-three/drei'
+import PropTypes from 'prop-types'
 
-const Particles = ({ count = 5000 }) => {
+export const Particles = ({ count = 5000 }) => {
   const particles = useMemo(() => {
     const positions = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
@@ -17,4 +18,6 @@ const Particles = ({ count = 5000 }) => {
   )
 }
 
-export default Particles
+Particles.propTypes = {
+  count: PropTypes.number,
+}
