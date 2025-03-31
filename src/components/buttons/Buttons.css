@@ -1,0 +1,24 @@
+/* Buttons.css */
+.social {
+  position: fixed;
+}
+
+.social__button {
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.social__button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Eliminar la clase .instagram del App.css */

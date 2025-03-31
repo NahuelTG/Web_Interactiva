@@ -1,0 +1,16 @@
+.footer {
+  position: fixed;
+  bottom: 10%;
+  right: 7.5%;
+}
+
+.footer ul {
+  display: flex;
+  align-items: center;
+  gap: 80px; /* Espacio entre elementos */
+}
+
+.footer li {
+  list-style: none;
+  display: inline-block; /* o simplemente eliminar esta línea si usas flex */
+}

@@ -27,3 +27,8 @@ canvas {
   height: 100%;
   transform: translateZ(0);
 }
+
+.instagram {
+  position: fixed;
+  cursor: pointer;
+}
