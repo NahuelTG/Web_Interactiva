@@ -8,7 +8,7 @@ export const RutasSonoras = () => {
       viewBox="0 0 521.000000 461.000000"
       preserveAspectRatio="xMidYMid meet"
     >
-      <g transform="translate(0.000000,461.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none"></g>
+      <g transform="translate(0.000000,461.000000) scale(0.100000,-0.100000)" fill="#ffff" stroke="none"></g>
     </svg>
   )
 }
