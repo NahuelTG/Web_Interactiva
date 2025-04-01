@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import * as THREE from 'three'
 import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { IconFloating } from './IconFloating'
 import { ParticlesSphere } from './effects/ParticlesSphere'
 
 export const PanelTitle = ({ video_title, title, subtitle, position, rotation, scale = 1, transitionProgress }) => {
@@ -154,6 +155,14 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
         <sphereGeometry args={[0.08, 32, 32]} />
         <meshPhongMaterial color="#00ffff" emissive="#006666" emissiveIntensity={0.8} shininess={100} />
       </mesh>
+
+      <IconFloating
+        ref={sphereRef}
+        position={[-0.6, initialY.current, 0]}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+        onClick={handleClick}
+      />
 
       {/* Onda de choque */}
       {showShockwave && (
