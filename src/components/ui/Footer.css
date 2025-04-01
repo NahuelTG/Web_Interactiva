@@ -1,16 +1,25 @@
 .footer {
   position: fixed;
   bottom: 10%;
-  right: 7.5%;
+  width: 85%; /* Ocupa todo el ancho disponible */
+  padding: 0 7.5%; /* Padding igual al margen original */
 }
 
 .footer ul {
   display: flex;
+  justify-content: space-between; /* Separa logo y redes */
   align-items: center;
-  gap: 80px; /* Espacio entre elementos */
+  margin: 0;
+  padding: 0;
 }
 
-.footer li {
-  list-style: none;
-  display: inline-block; /* o simplemente eliminar esta línea si usas flex */
+.footer__social-group {
+  display: flex;
+  gap: 80px; /* Mantiene espacio entre iconos */
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+  margin-right: auto; /* Empuja el grupo de redes a la derecha */
 }

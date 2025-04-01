@@ -35,7 +35,7 @@ export const galleryContent = [
     title: 'Experiencias Inmersivas',
     subtitle: 'Summergo Lab',
     img: VR_4,
-    link: 'https://youtu.be/jIaPBCX80tc',
+    link: 'https://youtu.be/k1FFjrKHFUs ',
   },
   {
     video_title: 'Leer El Cielo XR',

@@ -10,6 +10,7 @@ import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
+import { Title } from './Title'
 
 // Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
@@ -38,7 +39,7 @@ const Scene = () => {
     <Canvas
       camera={{
         position: [0, 8, 10],
-        fov: 50,
+        fov: 60,
       }}
       onCreated={({ scene }) => {
         scene.fog = new THREE.Fog('#0d0d1a', 10, 30)
@@ -64,9 +65,10 @@ const Scene = () => {
         <ReverseScrollControls>
           <CameraController />
           <CircularPath />
+          <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} />
           <FloatingPanel
-            position={[5.15, 0.35, 1.5]}
-            rotation={[0, THREE.MathUtils.degToRad(180), 0]}
+            position={[4.75, 0.35, 2.5]}
+            rotation={[0, THREE.MathUtils.degToRad(170), 0]}
             galleryContent={galleryContent}
             title={'Experiencias inmersivas'}
             subtitle={'Summergo Lab'}
