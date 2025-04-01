@@ -14,11 +14,11 @@ export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position, r
   useEffect(() => {
     if (texture) {
       texture.repeat.set(1, 1)
-      texture.offset.set(0.2, 0.2)
+      texture.offset.set(0, 0.2)
       texture.center.set(0.4, 0.4)
       texture.wrapS = THREE.ClampToEdgeWrapping
       texture.wrapT = THREE.ClampToEdgeWrapping
-      texture.rotation = Math.PI // Rotación de 180 grados para la cara posterior
+      texture.rotation = Math.PI / 2 // Rotación de 180 grados para la cara posterior
     }
   }, [texture])
 
@@ -78,7 +78,6 @@ export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position, r
           emissive="#00ffff"
           emissiveIntensity={0.5}
           alphaTest={0.1}
-          rotation={Math.PI} // Rotación adicional de 180 grados
         />
 
         <mesh rotation={[0, Math.PI / 2, 0]}>

@@ -158,7 +158,7 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
 
       <IconFloating
         ref={sphereRef}
-        position={[-0.6, initialY.current, 0]}
+        position={[5, initialY.current - 1.5, 0]}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
         onClick={handleClick}
