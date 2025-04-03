@@ -3,8 +3,9 @@ import { useFrame, useLoader } from '@react-three/fiber'
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
 import ARIcon from '../assets/images/Icons/AR.png'
+import PropTypes from 'prop-types'
 
-export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position, rotation }) => {
+export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position }) => {
   const coinRef = useRef()
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
@@ -87,4 +88,11 @@ export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position, r
       </mesh>
     </group>
   )
+}
+
+IconFloating.propTypes = {
+  onClick: PropTypes.func,
+  onPointerOver: PropTypes.func,
+  onPointerOut: PropTypes.func,
+  position: PropTypes.array,
 }
