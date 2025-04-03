@@ -96,8 +96,10 @@ const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
           currentIndex={currentIndex}
         />
         <PanelTitle
-          title={galleryContent[targetIndex].title} // Usar targetIndex en lugar de currentIndex
-          subtitle={galleryContent[targetIndex].subtitle}
+          line_1={galleryContent[targetIndex].line_1}
+          line_2={galleryContent[targetIndex].line_2}
+          line_3={galleryContent[targetIndex].line_3}
+          line_4={galleryContent[targetIndex].line_4}
           video_title={galleryContent[targetIndex].video_title}
           position={[3.2, 0, 0.2]}
           rotation={[0, THREE.MathUtils.degToRad(-30), 0]}
@@ -112,13 +114,15 @@ FloatingPanel.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
   scale: PropTypes.number,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
+  line_1: PropTypes.string,
+  line_2: PropTypes.string,
+  line_3: PropTypes.string,
+  line_4: PropTypes.string,
   galleryContent: PropTypes.arrayOf(
     PropTypes.shape({
       video_title: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
+      line_1: PropTypes.string.isRequired,
+      line_2: PropTypes.string.isRequired,
       src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
