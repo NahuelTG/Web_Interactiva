@@ -10,7 +10,7 @@ import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
-import { Title } from './Title'
+//import { Title } from './Title'
 
 // Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
@@ -65,7 +65,7 @@ const Scene = () => {
         <ReverseScrollControls>
           <CameraController />
           <CircularPath />
-          <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} />
+          {/* <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} /> */}
           <FloatingPanel
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
