@@ -7,7 +7,7 @@ import { useFrame } from '@react-three/fiber'
 import { IconFloating } from './IconFloating'
 import { ParticlesSphere } from './effects/ParticlesSphere'
 
-export const PanelTitle = ({ video_title, line_1, line_2, line_3, line_4, position, rotation, scale = 1, transitionProgress }) => {
+export const PanelTitle = ({ video_title, line_1, line_2, line_3, line_4, icon, position, rotation, scale = 1, transitionProgress }) => {
   const titleRef = useRef()
   const subtitleRef = useRef()
   const videoTitleRef = useRef()
@@ -194,6 +194,7 @@ export const PanelTitle = ({ video_title, line_1, line_2, line_3, line_4, positi
 
       <IconFloating
         ref={sphereRef}
+        icon={icon}
         position={[5, initialY.current - 1.5, 0]}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
@@ -231,6 +232,7 @@ PanelTitle.propTypes = {
   line_3: PropTypes.string,
   line_4: PropTypes.string,
   video_title: PropTypes.string,
+  icon: PropTypes.string.isRequired,
   transitionProgress: PropTypes.func.isRequired,
 }
 

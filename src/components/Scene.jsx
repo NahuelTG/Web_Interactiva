@@ -70,6 +70,7 @@ const Scene = () => {
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
             galleryContent={galleryContent[0].VR}
+            icon={galleryContent[0].Icon}
             title={'Experiencias inmersivas'}
             subtitle={'Summergo Lab'}
           />

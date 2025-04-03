@@ -2,15 +2,14 @@
 import { useFrame, useLoader } from '@react-three/fiber'
 import { useRef, useState, useEffect } from 'react'
 import * as THREE from 'three'
-import ARIcon from '../assets/images/Icons/AR.png'
 import PropTypes from 'prop-types'
 
-export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position }) => {
+export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position, icon }) => {
   const coinRef = useRef()
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
   const [clicked, setClicked] = useState(false)
-  const texture = useLoader(THREE.TextureLoader, ARIcon)
+  const texture = useLoader(THREE.TextureLoader, icon)
 
   useEffect(() => {
     if (texture) {
@@ -23,7 +22,7 @@ export const IconFloating = ({ onClick, onPointerOver, onPointerOut, position })
     }
   }, [texture])
 
-  const initialRotation = new THREE.Euler(-Math.PI / 2, 0, 0)
+  const initialRotation = new THREE.Euler(Math.PI / 2, 0, 0)
 
   useFrame((state, delta) => {
     coinRef.current.rotation.z += delta * 3
@@ -95,4 +94,5 @@ IconFloating.propTypes = {
   onPointerOver: PropTypes.func,
   onPointerOut: PropTypes.func,
   position: PropTypes.array,
+  icon: PropTypes.string,
 }

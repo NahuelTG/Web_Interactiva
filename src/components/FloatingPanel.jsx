@@ -7,7 +7,7 @@ import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
 
-const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
+const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }) => {
   const [hovered, setHovered] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [transitionProgress, setTransitionProgress] = useState(1)
@@ -101,6 +101,7 @@ const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
           line_3={galleryContent[targetIndex].line_3}
           line_4={galleryContent[targetIndex].line_4}
           video_title={galleryContent[targetIndex].video_title}
+          icon={icon}
           position={[3.2, 0, 0.2]}
           rotation={[0, THREE.MathUtils.degToRad(-30), 0]}
           transitionProgress={transitionProgress} // Pasar el progreso de transición
@@ -129,6 +130,7 @@ FloatingPanel.propTypes = {
       link: PropTypes.string.isRequired,
     })
   ).isRequired,
+  icon: PropTypes.string.isRequired,
 }
 
 export default FloatingPanel

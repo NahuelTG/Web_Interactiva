@@ -9,6 +9,7 @@ import VR_4 from '../images/VR/4.webp'
 import VR_5 from '../images/VR/5.webp'
 import VR_6 from '../images/VR/6.webp'
 import VR_7 from '../images/VR/7.webp'
+import IconVR from '../images/Icons/VR.png'
 
 export const galleryContent = [
   {
@@ -77,5 +78,6 @@ export const galleryContent = [
         link: 'https://youtu.be/aVpjR-pIA50',
       },
     ],
+    Icon: IconVR,
   },
 ]
