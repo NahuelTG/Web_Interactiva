@@ -123,6 +123,8 @@ FloatingPanel.propTypes = {
       video_title: PropTypes.string.isRequired,
       line_1: PropTypes.string.isRequired,
       line_2: PropTypes.string.isRequired,
+      line_3: PropTypes.string.isRequired,
+      line_4: PropTypes.string.isRequired,
       src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
