@@ -100,6 +100,7 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
           line_2={galleryContent[targetIndex].line_2}
           line_3={galleryContent[targetIndex].line_3}
           line_4={galleryContent[targetIndex].line_4}
+          line_5={galleryContent[targetIndex].line_5}
           video_title={galleryContent[targetIndex].video_title}
           icon={icon}
           position={[3.2, 0, 0.2]}
@@ -119,6 +120,7 @@ FloatingPanel.propTypes = {
   line_2: PropTypes.string,
   line_3: PropTypes.string,
   line_4: PropTypes.string,
+  line_5: PropTypes.string,
   galleryContent: PropTypes.arrayOf(
     PropTypes.shape({
       video_title: PropTypes.string.isRequired,
@@ -126,6 +128,7 @@ FloatingPanel.propTypes = {
       line_2: PropTypes.string.isRequired,
       line_3: PropTypes.string.isRequired,
       line_4: PropTypes.string.isRequired,
+      line_5: PropTypes.string.isRequired,
       src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
