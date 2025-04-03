@@ -69,7 +69,7 @@ const Scene = () => {
           <FloatingPanel
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
-            galleryContent={galleryContent}
+            galleryContent={galleryContent[0].VR}
             title={'Experiencias inmersivas'}
             subtitle={'Summergo Lab'}
           />
