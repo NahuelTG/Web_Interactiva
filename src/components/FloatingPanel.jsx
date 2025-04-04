@@ -7,7 +7,7 @@ import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
 import PropTypes from 'prop-types'
 
-const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
+const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }) => {
   const [hovered, setHovered] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [transitionProgress, setTransitionProgress] = useState(1)
@@ -96,9 +96,13 @@ const FloatingPanel = ({ position, rotation, galleryContent, scale = 0.1 }) => {
           currentIndex={currentIndex}
         />
         <PanelTitle
-          title={galleryContent[targetIndex].title} // Usar targetIndex en lugar de currentIndex
-          subtitle={galleryContent[targetIndex].subtitle}
+          line_1={galleryContent[targetIndex].line_1}
+          line_2={galleryContent[targetIndex].line_2}
+          line_3={galleryContent[targetIndex].line_3}
+          line_4={galleryContent[targetIndex].line_4}
+          line_5={galleryContent[targetIndex].line_5}
           video_title={galleryContent[targetIndex].video_title}
+          icon={icon}
           position={[3.2, 0, 0.2]}
           rotation={[0, THREE.MathUtils.degToRad(-30), 0]}
           transitionProgress={transitionProgress} // Pasar el progreso de transición
@@ -112,17 +116,24 @@ FloatingPanel.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
   scale: PropTypes.number,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
+  line_1: PropTypes.string,
+  line_2: PropTypes.string,
+  line_3: PropTypes.string,
+  line_4: PropTypes.string,
+  line_5: PropTypes.string,
   galleryContent: PropTypes.arrayOf(
     PropTypes.shape({
       video_title: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      subtitle: PropTypes.string.isRequired,
+      line_1: PropTypes.string.isRequired,
+      line_2: PropTypes.string.isRequired,
+      line_3: PropTypes.string.isRequired,
+      line_4: PropTypes.string.isRequired,
+      line_5: PropTypes.string.isRequired,
       src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
   ).isRequired,
+  icon: PropTypes.string.isRequired,
 }
 
 export default FloatingPanel

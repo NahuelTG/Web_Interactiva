@@ -10,7 +10,7 @@ import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
-import { Title } from './Title'
+//import { Title } from './Title'
 
 // Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
@@ -50,8 +50,8 @@ const Scene = () => {
     >
       <BackgroundParticles />
       <Particles />
-      <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} />
-      <FloatingText texto={'De vuelta'} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
+      {/* <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} /> */}
+      <FloatingText texto={''} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
       <ScrollControls
         pages={30}
@@ -65,13 +65,30 @@ const Scene = () => {
         <ReverseScrollControls>
           <CameraController />
           <CircularPath />
-          <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} />
+          {/* <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} /> */}
           <FloatingPanel
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
-            galleryContent={galleryContent}
-            title={'Experiencias inmersivas'}
-            subtitle={'Summergo Lab'}
+            galleryContent={galleryContent[0].VR}
+            icon={galleryContent[0].Icon}
+          />
+          <FloatingPanel
+            position={[-2, 0.35, 5]}
+            rotation={[0, THREE.MathUtils.degToRad(80), 0]}
+            galleryContent={galleryContent[1].MD}
+            icon={galleryContent[1].Icon}
+          />
+          <FloatingPanel
+            position={[-5.45, 0.35, 0]}
+            rotation={[0, THREE.MathUtils.degToRad(20), 0]}
+            galleryContent={galleryContent[2].AR}
+            icon={galleryContent[2].Icon}
+          />
+          <FloatingPanel
+            position={[1, 0.35, -5.3]}
+            rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
+            galleryContent={galleryContent[3].AudioRuta}
+            icon={galleryContent[3].Icon}
           />
         </ReverseScrollControls>
       </ScrollControls>

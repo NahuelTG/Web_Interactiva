@@ -7,7 +7,19 @@ import { useFrame } from '@react-three/fiber'
 import { IconFloating } from './IconFloating'
 import { ParticlesSphere } from './effects/ParticlesSphere'
 
-export const PanelTitle = ({ video_title, title, subtitle, position, rotation, scale = 1, transitionProgress }) => {
+export const PanelTitle = ({
+  video_title,
+  line_1,
+  line_2,
+  line_3,
+  line_4,
+  line_5,
+  icon,
+  position,
+  rotation,
+  scale = 1,
+  transitionProgress,
+}) => {
   const titleRef = useRef()
   const subtitleRef = useRef()
   const videoTitleRef = useRef()
@@ -85,7 +97,7 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
     <group position={position} rotation={rotation} scale={scale}>
       <Text
         ref={videoTitleRef}
-        position={[0, 0.5, 0]} // Ajustado a la derecha
+        position={[0, 0.9, 0]} // Ajustado a la derecha
         fontSize={0.5}
         color="#3fffff"
         anchorX="left"
@@ -102,8 +114,8 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
       </Text>
       <Text
         ref={titleRef}
-        position={[0, -0.2, 0]} // Ajustado a la derecha
-        fontSize={0.3}
+        position={[0, 0.3, 0]} // Ajustado a la derecha
+        fontSize={0.2}
         color="#cceeff"
         anchorX="left"
         anchorY="middle"
@@ -116,13 +128,13 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
         letterSpacing={0.03}
         transparent
       >
-        {title}
+        {line_1}
       </Text>
 
       <Text
         ref={subtitleRef}
-        position={[0, -0.7, 0]} // Ajustado a la derecha
-        fontSize={0.3}
+        position={[0, 0, 0]} // Ajustado a la derecha
+        fontSize={0.2}
         color="#cceeff"
         anchorX="left"
         anchorY="middle"
@@ -135,7 +147,61 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
         letterSpacing={0.03}
         transparent
       >
-        {subtitle}
+        {line_2}
+      </Text>
+      <Text
+        ref={subtitleRef}
+        position={[0, -0.3, 0]} // Ajustado a la derecha
+        fontSize={0.2}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+        transparent
+      >
+        {line_3}
+      </Text>
+      <Text
+        ref={subtitleRef}
+        position={[0, -0.6, 0]} // Ajustado a la derecha
+        fontSize={0.2}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+        transparent
+      >
+        {line_4}
+      </Text>
+      <Text
+        ref={subtitleRef}
+        position={[0, -0.9, 0]} // Ajustado a la derecha
+        fontSize={0.2}
+        color="#cceeff"
+        anchorX="left"
+        anchorY="middle"
+        lineHeight={1.2}
+        textAlign="right"
+        fillOpacity={0.8}
+        outlineWidth={0.01}
+        outlineColor="#66ccff"
+        depthOffset={0.5}
+        letterSpacing={0.03}
+        transparent
+      >
+        {line_5}
       </Text>
 
       {/* Barra interactiva */}
@@ -158,6 +224,7 @@ export const PanelTitle = ({ video_title, title, subtitle, position, rotation, s
 
       <IconFloating
         ref={sphereRef}
+        icon={icon}
         position={[5, initialY.current - 1.5, 0]}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
@@ -190,9 +257,13 @@ PanelTitle.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
   scale: PropTypes.number,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
+  line_1: PropTypes.string,
+  line_2: PropTypes.string,
+  line_3: PropTypes.string,
+  line_4: PropTypes.string,
+  line_5: PropTypes.string,
   video_title: PropTypes.string,
+  icon: PropTypes.string.isRequired,
   transitionProgress: PropTypes.func.isRequired,
 }
 
