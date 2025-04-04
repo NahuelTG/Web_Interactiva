@@ -51,7 +51,7 @@ const Scene = () => {
       <BackgroundParticles />
       <Particles />
       {/* <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} /> */}
-      <FloatingText texto={'De vuelta'} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
+      <FloatingText texto={''} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
       <ScrollControls
         pages={30}
@@ -75,20 +75,20 @@ const Scene = () => {
           <FloatingPanel
             position={[-2, 0.35, 5]}
             rotation={[0, THREE.MathUtils.degToRad(80), 0]}
-            galleryContent={galleryContent[0].VR}
-            icon={galleryContent[0].Icon}
+            galleryContent={galleryContent[1].MD}
+            icon={galleryContent[1].Icon}
           />
           <FloatingPanel
             position={[-5.45, 0.35, 0]}
-            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
-            galleryContent={galleryContent[0].VR}
-            icon={galleryContent[0].Icon}
+            rotation={[0, THREE.MathUtils.degToRad(20), 0]}
+            galleryContent={galleryContent[2].AR}
+            icon={galleryContent[2].Icon}
           />
           <FloatingPanel
-            position={[2, 0.35, -5]}
-            rotation={[0, THREE.MathUtils.degToRad(-100), 0]}
-            galleryContent={galleryContent[0].VR}
-            icon={galleryContent[0].Icon}
+            position={[1, 0.35, -5.3]}
+            rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
+            galleryContent={galleryContent[3].AudioRuta}
+            icon={galleryContent[3].Icon}
           />
         </ReverseScrollControls>
       </ScrollControls>
