@@ -13,6 +13,9 @@ import IconVR from '../images/Icons/VR.png'
 import AR_1 from '../images/AR/9.webp'
 import AR_2 from '../images/AR/11.webp'
 
+import AudioRuta_1 from '../images/AudioRuta/8.webp'
+import AudioRuta_2 from '../images/AudioRuta/12.webp'
+
 export const galleryContent = [
   {
     VR: [
@@ -110,6 +113,30 @@ export const galleryContent = [
         line_5: '',
         img: AR_2,
         link: 'https://youtu.be/3rKN5J22yQo ',
+      },
+    ],
+  },
+  {
+    RutasSonoras: [
+      {
+        video_title: 'AUDIO RUTA',
+        line_1: 'Leyenda contada al oído a través de recorrido',
+        line_2: 'georeferenciado de 6 paradas/capítulos,',
+        line_3: 'descúbrela mientras asciendes',
+        line_4: 'el Cerro Churuquella.',
+        line_5: '',
+        img: AudioRuta_1,
+        link: 'https://youtu.be/-8LE_zATxVQ ',
+      },
+      {
+        video_title: 'RUTA SONORA',
+        line_1: 'A través de 5 personajes reflexiona históricamente',
+        line_2: 'obre los estereotipos estéticos en sus diferentes',
+        line_3: 'dimensiones: racial, ideal,',
+        line_4: 'urbano, contextura y estatura.',
+        line_5: '',
+        img: AudioRuta_2,
+        link: 'https://youtu.be/uDD5j5dsbuc ',
       },
     ],
   },
