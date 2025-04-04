@@ -10,6 +10,8 @@ import VR_5 from '../images/VR/5.webp'
 import VR_6 from '../images/VR/6.webp'
 import VR_7 from '../images/VR/7.webp'
 import IconVR from '../images/Icons/VR.png'
+import AR_1 from '../images/AR/9.webp'
+import AR_2 from '../images/AR/11.webp'
 
 export const galleryContent = [
   {
@@ -86,5 +88,29 @@ export const galleryContent = [
       },
     ],
     Icon: IconVR,
+  },
+  {
+    AR: [
+      {
+        video_title: 'REALIDAD AUMENTADA',
+        line_1: '¿Qué mensaje escondieron las Heroínas de la Coronilla',
+        line_2: 'al saber que ya no están en los nuevos billetes?',
+        line_3: 'Descúbleto en billetes de 10 bolivianos',
+        line_4: 'de tiraje antiguo.',
+        line_5: '',
+        img: AR_1,
+        link: 'https://youtu.be/3HJgZIfiDN8?si=cnEDq8sAAeKCSyFf ',
+      },
+      {
+        video_title: 'REALIDAD AUMENTADA',
+        line_1: 'Especie vínculo entre carnívoros y aves.',
+        line_2: 'En Bolivia, sus fósiles se encontraron en los',
+        line_3: 'departamentos de Cochabamba,',
+        line_4: 'Potosí, Chuquisaca y Tarija.',
+        line_5: '',
+        img: AR_2,
+        link: 'https://youtu.be/3rKN5J22yQo ',
+      },
+    ],
   },
 ]
