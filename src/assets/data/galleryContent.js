@@ -8,13 +8,15 @@ import VR_3 from '../images/VR/3.webp'
 import VR_4 from '../images/VR/4.webp'
 import VR_5 from '../images/VR/5.webp'
 import VR_6 from '../images/VR/6.webp'
-import VR_7 from '../images/VR/7.webp'
 import IconVR from '../images/Icons/VR.png'
+import MD_7 from '../images/MuseoDigital/7.webp'
+import IconMD from '../images/Icons/MUSEO.png'
 import AR_1 from '../images/AR/9.webp'
 import AR_2 from '../images/AR/11.webp'
-
+import IconAR from '../images/Icons/AR.png'
 import AudioRuta_1 from '../images/AudioRuta/8.webp'
 import AudioRuta_2 from '../images/AudioRuta/12.webp'
+import IconAudioRuta from '../images/Icons/RUTAS_SONORAS.png'
 
 export const galleryContent = [
   {
@@ -79,6 +81,11 @@ export const galleryContent = [
         img: VR_6,
         link: 'https://youtu.be/aVpjR-pIA50',
       },
+    ],
+    Icon: IconVR,
+  },
+  {
+    MD: [
       {
         video_title: 'MUSEO DIGITAL',
         line_1: 'Chichería interactiva en 360°.',
@@ -86,11 +93,11 @@ export const galleryContent = [
         line_3: 'ocumentales acerca de la Tradición, Música, ',
         line_4: 'Gastronomía y la Entrada, fotografías ',
         line_5: 'de antaño,y conciertos en 360º.',
-        img: VR_7,
+        img: MD_7,
         link: 'www.carnavaldesucre.com',
       },
     ],
-    Icon: IconVR,
+    Icon: IconMD,
   },
   {
     AR: [
@@ -115,9 +122,10 @@ export const galleryContent = [
         link: 'https://youtu.be/3rKN5J22yQo ',
       },
     ],
+    Icon: IconAR,
   },
   {
-    RutasSonoras: [
+    AudioRuta: [
       {
         video_title: 'AUDIO RUTA',
         line_1: 'Leyenda contada al oído a través de recorrido',
@@ -139,5 +147,6 @@ export const galleryContent = [
         link: 'https://youtu.be/uDD5j5dsbuc ',
       },
     ],
+    Icon: IconAudioRuta,
   },
 ]
