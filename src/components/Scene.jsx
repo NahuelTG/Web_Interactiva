@@ -50,7 +50,7 @@ const Scene = () => {
     >
       <BackgroundParticles />
       <Particles />
-      <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} />
+      {/* <FloatingText texto={'Hola mundo'} position={[-7, 0, -7]} /> */}
       <FloatingText texto={'De vuelta'} position={[5, 2, 6]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} />
 
       <ScrollControls
@@ -71,8 +71,24 @@ const Scene = () => {
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
-            title={'Experiencias inmersivas'}
-            subtitle={'Summergo Lab'}
+          />
+          <FloatingPanel
+            position={[-2, 0.35, 5]}
+            rotation={[0, THREE.MathUtils.degToRad(80), 0]}
+            galleryContent={galleryContent[0].VR}
+            icon={galleryContent[0].Icon}
+          />
+          <FloatingPanel
+            position={[-5.45, 0.35, 0]}
+            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
+            galleryContent={galleryContent[0].VR}
+            icon={galleryContent[0].Icon}
+          />
+          <FloatingPanel
+            position={[2, 0.35, -5]}
+            rotation={[0, THREE.MathUtils.degToRad(-100), 0]}
+            galleryContent={galleryContent[0].VR}
+            icon={galleryContent[0].Icon}
           />
         </ReverseScrollControls>
       </ScrollControls>
