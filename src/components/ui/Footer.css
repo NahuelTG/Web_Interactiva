@@ -1,13 +1,13 @@
 .footer {
   position: fixed;
   bottom: 10%;
-  width: 85%; /* Ocupa todo el ancho disponible */
-  padding: 0 7.5%; /* Padding igual al margen original */
+  width: 85%;
+  padding: 0 7.5%;
 }
 
 .footer ul {
   display: flex;
-  justify-content: space-between; /* Separa logo y redes */
+  justify-content: space-between;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -15,11 +15,32 @@
 
 .footer__social-group {
   display: flex;
-  gap: 80px; /* Mantiene espacio entre iconos */
+  gap: 80px;
 }
 
 .logo {
   width: 140px;
   height: auto;
-  margin-right: auto; /* Empuja el grupo de redes a la derecha */
+  margin-right: auto;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .footer ul {
+    gap: 20px;
+  }
+
+  .footer__social-group {
+    gap: 50px;
+    justify-content: center;
+    margin-right: 40px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .footer__social-group li {
+    transform: scale(0.8); /* reduce button size */
+  }
 }
