@@ -89,8 +89,8 @@ export const galleryContent = [
       {
         video_title: 'MUSEO DIGITAL',
         line_1: 'Chichería interactiva en 360°.',
-        line_2: 'Navegando por los antifaces, encontrarás d',
-        line_3: 'ocumentales acerca de la Tradición, Música, ',
+        line_2: 'Navegando por los antifaces, encontrarás',
+        line_3: 'documentales acerca de la Tradición, Música, ',
         line_4: 'Gastronomía y la Entrada, fotografías ',
         line_5: 'de antaño,y conciertos en 360º.',
         img: MD_7,
