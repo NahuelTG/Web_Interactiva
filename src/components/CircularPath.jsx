@@ -30,7 +30,7 @@ const CircularPath = () => {
               <sphereGeometry args={[0.02, 16, 1]} />
               <meshStandardMaterial
                 color={`hsl(${hue * 360}, 70%, 50%)`}
-                emissive="white" // Luz emitida
+                emissive="#3fffff" // Luz emitida
                 emissiveIntensity={0.5} // Intensidad del brillo
                 metalness={0.5} // Nivel de metal
                 roughness={0.1} // Suavidad del material

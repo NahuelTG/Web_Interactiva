@@ -10,6 +10,9 @@ export const Footer = () => {
         </li>
         <div className="footer__social-group">
           <li className="footer__instagram">
+            <SocialButton type={'email'} />
+          </li>
+          <li className="footer__instagram">
             <SocialButton type={'instagram'} />
           </li>
           <li className="footer__facebook">
