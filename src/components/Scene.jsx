@@ -10,13 +10,20 @@ import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
-//import { Title } from './Title'
+import scrollService from '../service/ScrollService' // Importar el servicio
+
+// Creamos un contexto para el control de scroll
 
 // Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
   const scroll = useScroll()
 
   useEffect(() => {
+    // Registrar el elemento de scroll en el servicio
+    if (scroll && scroll.el) {
+      scrollService.setScrollElement(scroll.el)
+    }
+
     const handleWheel = (event) => {
       // Reverse the scroll direction
       event.preventDefault()
