@@ -10,12 +10,9 @@ import SummergoLogo from '../assets/images/SummergoLogo.png'
 export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
   const texture = useLoader(TextureLoader, SummergoLogo)
   const textLines = [
-    'Somos Summergo Lab,',
-    'una compañía que fusiona',
-    'arte, tecnología y cultura.',
-    'Creamos experiencias',
-    'inmersivas memorables',
-    'en VR, AR, y más.',
+    'Somos Summergo Lab,una compañía que fusiona',
+    'arte, tecnología y cultura. Creamos experiencias',
+    'inmersivas memorables en VR, AR, y más.',
     '¡Conectemos!',
   ]
 
@@ -31,7 +28,7 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
 
       {/* Text lines */}
       {textLines.map((line, i) => (
-        <Text key={i} fontSize={0.07} color="white" anchorX="center" anchorY="middle" position={[0, 1.1 - i * 0.15, 0]}>
+        <Text key={i} fontSize={0.07} color="white" anchorX="center" anchorY="middle" position={[0, 1.1 - i * 0.12, 0]}>
           {line}
         </Text>
       ))}

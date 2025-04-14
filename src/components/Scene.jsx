@@ -73,7 +73,7 @@ const Scene = () => {
         <ReverseScrollControls>
           <CameraController />
           <CircularPath />
-          <AboutUs position={[4.7, 0, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
+          <AboutUs position={[4.7, -0.5, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <FloatingPanel
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
