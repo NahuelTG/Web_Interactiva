@@ -1,6 +1,6 @@
 import scrollService from '../../service/ScrollService'
 import { useState } from 'react'
-import Modal from '../Modal'
+import Modal from './Modal'
 import './Navbar.css'
 
 export const Navbar = () => {
