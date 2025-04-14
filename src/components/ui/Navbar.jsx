@@ -13,13 +13,13 @@ export const Navbar = () => {
           <button onClick={() => handleScrollToPage(0)}>INICIO</button>
         </li>
         <li>
-          <button onClick={() => handleScrollToPage(7.5)}>ACERCA DE NOSOTROS</button>
+          <button onClick={() => handleScrollToPage(27.5)}>ACERCA DE NOSOTROS</button>
         </li>
         <li>
-          <button onClick={() => handleScrollToPage(15)}>EXHIBICIONES</button>
+          <button onClick={() => handleScrollToPage(0)}>EXHIBICIONES</button>
         </li>
         <li>
-          <button onClick={() => handleScrollToPage(22.5)}>RECONOCIMIENTOS</button>
+          <button onClick={() => handleScrollToPage(0)}>RECONOCIMIENTOS</button>
         </li>
       </ul>
     </nav>

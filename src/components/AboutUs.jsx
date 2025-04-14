@@ -21,7 +21,7 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
   return (
     <group position={position} rotation={rotation}>
       {/* Logo */}
-      <mesh position={[0, 1.4, 0]}>
+      <mesh position={[0, 1.3, 0]}>
         <planeGeometry args={[0.5, 0.17]} />
         <meshStandardMaterial map={texture} transparent opacity={1} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
