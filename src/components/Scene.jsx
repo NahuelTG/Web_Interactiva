@@ -10,6 +10,7 @@ import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
+import { AboutUs } from './AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
 
 // Creamos un contexto para el control de scroll
@@ -72,7 +73,7 @@ const Scene = () => {
         <ReverseScrollControls>
           <CameraController />
           <CircularPath />
-          {/* <Title position={[4.9, 0.33, 0.75]} rotation={[0, THREE.MathUtils.degToRad(170), 0]} size={2} /> */}
+          <AboutUs position={[4.7, 0, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <FloatingPanel
             position={[4.75, 0.35, 2.5]}
             rotation={[0, THREE.MathUtils.degToRad(170), 0]}
