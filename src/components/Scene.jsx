@@ -12,6 +12,7 @@ import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
 import { AboutUs } from './AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
+import LazyFloatingPanel from './LazyFloatingPanel'
 
 // Creamos un contexto para el control de scroll
 
@@ -80,7 +81,8 @@ const Scene = () => {
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
           />
-          <FloatingPanel
+
+          <LazyFloatingPanel
             position={[-2, 0.35, 5]}
             rotation={[0, THREE.MathUtils.degToRad(80), 0]}
             galleryContent={galleryContent[1].MD}
