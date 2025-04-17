@@ -166,7 +166,7 @@ export const galleryContent = [
         line_4: 'por el planeta. ',
         line_5: '',
         img: RecorridoVirtual_2,
-        link: 'https://youtu.be/fRmMEFhEOXQ?si=GztbY2e_Yyo90n57',
+        link: 'https://youtu.be/fRmMEFhEOXQ?si=WmkMHq53Dz7ejQNN',
       },
     ],
     Icon: IconRecorridoVirtual,

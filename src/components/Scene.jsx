@@ -99,6 +99,18 @@ const Scene = () => {
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
           />
+          <LazyFloatingPanel
+            position={[-2, 0.3, -3.5]}
+            rotation={[0, THREE.MathUtils.degToRad(-20), 0]}
+            galleryContent={galleryContent[4].RV}
+            icon={galleryContent[4].Icon}
+          />
+          <LazyFloatingPanel
+            position={[1, 0.3, -4.15]}
+            rotation={[0, THREE.MathUtils.degToRad(-45), 0]}
+            galleryContent={galleryContent[5].PA}
+            icon={galleryContent[5].Icon}
+          />
         </ReverseScrollControls>
       </ScrollControls>
 
