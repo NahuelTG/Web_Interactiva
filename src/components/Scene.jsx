@@ -83,7 +83,7 @@ const Scene = () => {
 
           <LazyFloatingPanel
             position={[0.5, 0.3, 4.75]}
-            rotation={[0, THREE.MathUtils.degToRad(70), 0]}
+            rotation={[0, THREE.MathUtils.degToRad(72.5), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
