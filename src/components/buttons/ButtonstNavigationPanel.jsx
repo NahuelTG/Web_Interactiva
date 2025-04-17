@@ -87,7 +87,7 @@ export const ButtonsNavigationPanel = ({ position, setTargetIndex, totalItems, t
         <meshStandardMaterial color="#3ff" />
         <Text
           position={[0, 0.1, 0.03]}
-          rotation={[THREE.MathUtils.degToRad(90), 0, 0]}
+          rotation={[THREE.MathUtils.degToRad(-90), 0, 0]}
           fontSize={0.2}
           color="white"
           anchorX="center"
