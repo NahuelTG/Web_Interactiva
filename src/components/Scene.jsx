@@ -75,9 +75,9 @@ const Scene = () => {
           <CameraController />
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
-          <FloatingPanel
-            position={[4.75, 0.35, 2.5]}
-            rotation={[0, THREE.MathUtils.degToRad(170), 0]}
+          <LazyFloatingPanel
+            position={[3.9, 0.3, 4]}
+            rotation={[0, THREE.MathUtils.degToRad(95), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
           />
@@ -88,13 +88,13 @@ const Scene = () => {
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
-          <FloatingPanel
+          <LazyFloatingPanel
             position={[-5.45, 0.35, 0]}
             rotation={[0, THREE.MathUtils.degToRad(20), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
           />
-          <FloatingPanel
+          <LazyFloatingPanel
             position={[1, 0.35, -5.3]}
             rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
             galleryContent={galleryContent[3].AudioRuta}
