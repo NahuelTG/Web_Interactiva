@@ -8,7 +8,6 @@ import { Particles } from './Particles'
 import FloatingText from './FloatingText'
 import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
-import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
 import { AboutUs } from './AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
@@ -83,19 +82,19 @@ const Scene = () => {
           />
 
           <LazyFloatingPanel
-            position={[-2, 0.35, 4]}
-            rotation={[0, THREE.MathUtils.degToRad(50), 0]}
+            position={[0.5, 0.3, 4.75]}
+            rotation={[0, THREE.MathUtils.degToRad(70), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
           <LazyFloatingPanel
-            position={[-5.45, 0.35, 0]}
+            position={[-5.45, 0.3, 0]}
             rotation={[0, THREE.MathUtils.degToRad(20), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
           />
           <LazyFloatingPanel
-            position={[1, 0.35, -5.3]}
+            position={[1, 0.3, -5.3]}
             rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
