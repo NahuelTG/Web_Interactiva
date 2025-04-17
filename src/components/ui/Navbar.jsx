@@ -1,6 +1,6 @@
 import scrollService from '../../service/ScrollService'
 import { useState } from 'react'
-import Modal from './Modal'
+import ResenaModal from './ResenaModal'
 import './NavBar.css'
 
 export const Navbar = () => {
@@ -29,25 +29,7 @@ export const Navbar = () => {
         </ul>
       </nav>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <h2 style={{ color: '#00d4ff' }}>Reconocimientos</h2>
-        <p>
-          Hemos sido reconocidos por múltiples organizaciones internacionales por nuestro aporte a la cultura, tecnología y arte inmersivo.
-        </p>
-        <p>
-          - Premio XYZ 2023
-          <br />
-          - Selección oficial en Festival de Realidad Virtual
-          <br />
-          - Colaboraciones con universidades y museos
-          <br />
-          - Reconocimiento del Ministerio de Cultura
-          <br />
-          - Premio a la innovación en medios digitales
-          <br />
-        </p>
-        <p>Nuestro trabajo sigue inspirando a nuevas generaciones de creadores. Gracias por acompañarnos en esta aventura.</p>
-      </Modal>
+      <ResenaModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   )
 }
