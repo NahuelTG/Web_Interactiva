@@ -5,6 +5,7 @@ import Modal from './Modal'
 import resenaHTML_1 from '../../assets/data/resena-summergo.html1'
 import resenaHTML_2 from '../../assets/data/resena-summergo.html2'
 import resenaTable from '../../assets/data/resena-summergo.table.html'
+import FormularioProyecto from '../../assets/data/FormularioProyecto'
 import './Modal.css'
 
 const ResenaModal = ({ isOpen, onClose }) => {
@@ -15,6 +16,7 @@ const ResenaModal = ({ isOpen, onClose }) => {
         <h3 style={{ color: '#00d4ff', marginTop: '2rem' }}>Proyectos Institucionales y Microdocumentales</h3>
         <div className="responsive-table" dangerouslySetInnerHTML={{ __html: resenaTable }} />
         <div dangerouslySetInnerHTML={{ __html: resenaHTML_2 }} />
+        <FormularioProyecto />
       </div>
     </Modal>
   )
