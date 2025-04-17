@@ -75,29 +75,41 @@ const Scene = () => {
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <LazyFloatingPanel
-            position={[3.9, 0.3, 4]}
+            position={[4.1, 0.3, 3.7]}
             rotation={[0, THREE.MathUtils.degToRad(95), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
           />
 
           <LazyFloatingPanel
-            position={[0.5, 0.3, 4.75]}
-            rotation={[0, THREE.MathUtils.degToRad(72.5), 0]}
+            position={[2.15, 0.3, 4.7]}
+            rotation={[0, THREE.MathUtils.degToRad(83), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
           <LazyFloatingPanel
-            position={[-3, 0.3, 3]}
-            rotation={[0, THREE.MathUtils.degToRad(40), 0]}
+            position={[-0.25, 0.3, 4.75]}
+            rotation={[0, THREE.MathUtils.degToRad(67), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
           />
           <LazyFloatingPanel
-            position={[-3.9, 0.3, -0.75]}
-            rotation={[0, THREE.MathUtils.degToRad(5), 0]}
+            position={[-2.3, 0.3, 3.65]}
+            rotation={[0, THREE.MathUtils.degToRad(50), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
+          />
+          <LazyFloatingPanel
+            position={[-3.7, 0.3, 1.9]}
+            rotation={[0, THREE.MathUtils.degToRad(30), 0]}
+            galleryContent={galleryContent[4].RV}
+            icon={galleryContent[4].Icon}
+          />
+          <LazyFloatingPanel
+            position={[-4, 0.3, -0.5]}
+            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
+            galleryContent={galleryContent[5].PA}
+            icon={galleryContent[5].Icon}
           />
         </ReverseScrollControls>
       </ScrollControls>

@@ -1,33 +1,34 @@
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(13, 13, 26, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2000;
+  z-index: 1;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 .modal-content {
   background: #0d0d1a;
   border: 2px solid #00d4ff;
   border-radius: 12px;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
+  width: 100%;
+  max-width: 80%;
+  max-height: 90vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
+  box-sizing: border-box;
 }
 
 .modal-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.75rem;
+  top: 10px;
+  right: 25px;
   background: transparent;
   color: #00d4ff;
   font-size: 1.5rem;
@@ -41,4 +42,69 @@
   color: white;
   font-family: 'Helvetica Neue', sans-serif;
   line-height: 1.6;
+  flex: 1;
+}
+
+.modal-scrollable {
+  max-height: 70vh;
+  overflow-y: auto;
+  margin-top: 20px;
+  padding: 20px;
+  white-space: pre-wrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem 0.5rem;
+    border-width: 1px;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+.responsive-table {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+  background-color: #111122;
+  border: 1px solid #00d4ff;
+}
+
+.responsive-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.95rem;
+}
+
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid #00d4ff;
+  padding: 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.responsive-table th {
+  background-color: #00d4ff;
+  color: #0d0d1a;
+}
+
+.responsive-table a {
+  color: #00d4ff;
+  text-decoration: none;
+}
+
+.responsive-table a:hover {
+  text-decoration: underline;
+}
+
+.responsive-table svg {
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }

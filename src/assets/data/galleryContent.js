@@ -6,7 +6,6 @@ import VR_1 from '../images/VR/1.webp'
 import VR_2 from '../images/VR/2.webp'
 import VR_3 from '../images/VR/3.webp'
 import VR_4 from '../images/VR/4.webp'
-import VR_5 from '../images/VR/5.webp'
 import VR_6 from '../images/VR/6.webp'
 import IconVR from '../images/Icons/VR.png'
 import MD_7 from '../images/MuseoDigital/7.webp'
@@ -17,6 +16,13 @@ import IconAR from '../images/Icons/AR.png'
 import AudioRuta_1 from '../images/AudioRuta/8.webp'
 import AudioRuta_2 from '../images/AudioRuta/12.webp'
 import IconAudioRuta from '../images/Icons/RUTAS_SONORAS.png'
+import RecorridoVirtual_1 from '../images/RV/5.webp'
+import RecorridoVirtual_2 from '../images/RV/25.webp'
+import IconRecorridoVirtual from '../images/Icons/RECORRIDO_VIRTUAL.png'
+import PA_1 from '../images/PA/26.webp'
+import PA_2 from '../images/PA/27.webp'
+import PA_3 from '../images/PA/28.webp'
+import IconPA from '../images/Icons/PRODUCCIÓN_AUDIVISUAL.png'
 
 export const galleryContent = [
   {
@@ -61,16 +67,7 @@ export const galleryContent = [
         img: VR_4,
         link: 'https://youtu.be/k1FFjrKHFUs ',
       },
-      {
-        video_title: 'LEER EL CIELO',
-        line_1: 'Experiencias Inmersivas',
-        line_2: 'Summergo Lab',
-        line_3: '',
-        line_4: '',
-        line_5: '',
-        img: VR_5,
-        link: 'https://youtu.be/O5UTM-V1pQ0',
-      },
+
       {
         video_title: 'MUSEOGRAFÍA INTERACTIVA',
         line_1: 'Recorre los espacios del museo 5 minutos',
@@ -148,5 +145,65 @@ export const galleryContent = [
       },
     ],
     Icon: IconAudioRuta,
+  },
+  {
+    RV: [
+      {
+        video_title: 'LEER EL CIELO',
+        line_1: 'Cinco constelaciones conectan el Universo con la',
+        line_2: 'Tierra, influyendo en los ciclos de la agricultura',
+        line_3: 'y la vida. El viaje a la Vía Láctea sigue el ritmo',
+        line_4: 'de estas entidades, transformando nuestra ',
+        line_5: 'percepción de cómo leemos el cielo.',
+        img: RecorridoVirtual_1,
+        link: 'https://youtu.be/O5UTM-V1pQ0',
+      },
+      {
+        video_title: 'PASEO CON DINOSAURIOS',
+        line_1: 'Explora el patrimonio paleontológico ',
+        line_2: 'de Bolivia y su relación con la edad ',
+        line_3: 'de la tierra y nuestro paso ',
+        line_4: 'por el planeta. ',
+        line_5: '',
+        img: RecorridoVirtual_2,
+        link: 'https://youtu.be/fRmMEFhEOXQ?si=WmkMHq53Dz7ejQNN',
+      },
+    ],
+    Icon: IconRecorridoVirtual,
+  },
+  {
+    PA: [
+      {
+        video_title: 'GUERRA DEL AGUA',
+        line_1: 'Hace 25 años, la Guerra del Agua en Bolivia frenó la ',
+        line_2: 'privatización y reivindicó modelos comunitarios, símbolo ',
+        line_3: 'histórico de resistencia. Hoy, ante nuevos ciclos de ',
+        line_4: 'explotación, la lucha debe despertar para ',
+        line_5: 'transformar la memoria en acción.',
+        img: PA_1,
+        link: 'https://youtu.be/X6ltlGx1bjM?si=sovWK9yF3JjLYNCd',
+      },
+      {
+        video_title: 'STOP MOTION DE DOCUFICCIÓN',
+        line_1: 'Un accidente en un pozo abandonado en el altiplano andino',
+        line_2: 'cobra la vida de dos niñas, revelando una tragedia silenciosa.',
+        line_3: 'Entre recuerdos y la indiferencia externa, su muerte',
+        line_4: 'cuestiona si el verdadero monstruo es el abismo',
+        line_5: 'acuoso o la deshumanización cotidiana.',
+        img: PA_2,
+        link: 'https://youtu.be/3Lp4hVrNtKs?si=d2Zigcgjwlukzscs',
+      },
+      {
+        video_title: 'VIDEO ARTE',
+        line_1: 'Explora el patrimonio paleontológico ',
+        line_2: 'de Bolivia y su relación con la edad ',
+        line_3: 'de la tierra y nuestro paso ',
+        line_4: 'por el planeta. ',
+        line_5: '',
+        img: PA_3,
+        link: 'https://youtu.be/Zd3R9pONmUc?si=1kKJ8nCCr7TxcCi3',
+      },
+    ],
+    Icon: IconPA,
   },
 ]

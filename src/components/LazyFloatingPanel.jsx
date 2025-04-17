@@ -14,7 +14,7 @@ const LazyFloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0
   const groupRef = useRef()
 
   // Distancias para controlar la visibilidad y la transición
-  const APPEAR_DISTANCE = 5 // Comenzar a aparecer
+  const APPEAR_DISTANCE = 4 // Comenzar a aparecer
 
   // Configuración de la animación con spring
   const { opacity, panelScale } = useSpring({
