@@ -94,8 +94,8 @@ const Scene = () => {
             icon={galleryContent[2].Icon}
           />
           <LazyFloatingPanel
-            position={[1, 0.3, -5.3]}
-            rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
+            position={[-3.9, 0.3, -0.75]}
+            rotation={[0, THREE.MathUtils.degToRad(5), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
           />
