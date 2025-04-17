@@ -191,7 +191,7 @@ export const galleryContent = [
         line_4: 'cuestiona si el verdadero monstruo es el abismo',
         line_5: 'acuoso o la deshumanización cotidiana.',
         img: PA_2,
-        link: 'https://youtu.be/3Lp4hVrNtKs?si=Z5ncOe64eYC91R6e',
+        link: 'https://youtu.be/3Lp4hVrNtKs?si=d2Zigcgjwlukzscs',
       },
       {
         video_title: 'VIDEO ARTE',
@@ -201,7 +201,7 @@ export const galleryContent = [
         line_4: 'por el planeta. ',
         line_5: '',
         img: PA_3,
-        link: 'https://youtu.be/fRmMEFhEOXQ?si=GztbY2e_Yyo90n57',
+        link: 'https://youtu.be/Zd3R9pONmUc?si=1kKJ8nCCr7TxcCi3',
       },
     ],
     Icon: IconPA,
