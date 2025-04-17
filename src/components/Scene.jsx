@@ -8,10 +8,10 @@ import { Particles } from './Particles'
 import FloatingText from './FloatingText'
 import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
-import FloatingPanel from './FloatingPanel'
 import { galleryContent } from '../assets/data/galleryContent'
 import { AboutUs } from './AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
+import LazyFloatingPanel from './LazyFloatingPanel'
 
 // Creamos un contexto para el control de scroll
 
@@ -74,27 +74,28 @@ const Scene = () => {
           <CameraController />
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
-          <FloatingPanel
-            position={[4.75, 0.35, 2.5]}
-            rotation={[0, THREE.MathUtils.degToRad(170), 0]}
+          <LazyFloatingPanel
+            position={[3.9, 0.3, 4]}
+            rotation={[0, THREE.MathUtils.degToRad(95), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
           />
-          <FloatingPanel
-            position={[-2, 0.35, 5]}
-            rotation={[0, THREE.MathUtils.degToRad(80), 0]}
+
+          <LazyFloatingPanel
+            position={[0.5, 0.3, 4.75]}
+            rotation={[0, THREE.MathUtils.degToRad(72.5), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
-          <FloatingPanel
-            position={[-5.45, 0.35, 0]}
-            rotation={[0, THREE.MathUtils.degToRad(20), 0]}
+          <LazyFloatingPanel
+            position={[-3, 0.3, 3]}
+            rotation={[0, THREE.MathUtils.degToRad(40), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
           />
-          <FloatingPanel
-            position={[1, 0.35, -5.3]}
-            rotation={[0, THREE.MathUtils.degToRad(-80), 0]}
+          <LazyFloatingPanel
+            position={[-3.9, 0.3, -0.75]}
+            rotation={[0, THREE.MathUtils.degToRad(5), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
           />

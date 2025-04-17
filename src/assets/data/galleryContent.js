@@ -94,7 +94,7 @@ export const galleryContent = [
         line_4: 'Gastronomía y la Entrada, fotografías ',
         line_5: 'de antaño,y conciertos en 360º.',
         img: MD_7,
-        link: 'www.carnavaldesucre.com',
+        link: 'https://www.carnavaldesucre.com',
       },
     ],
     Icon: IconMD,
