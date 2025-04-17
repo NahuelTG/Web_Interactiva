@@ -31,16 +31,16 @@
   }
 
   .footer__social-group {
-    gap: 50px;
+    gap: 40px;
     justify-content: center;
     margin-right: 40px;
   }
 
   .logo {
-    width: 100px;
+    width: 80px;
   }
 
   .footer__social-group li {
-    transform: scale(0.8); /* reduce button size */
+    transform: scale(0.6); /* reduce button size */
   }
 }

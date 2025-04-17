@@ -3,6 +3,7 @@
   top: 10%;
   right: 30px;
   background: transparent;
+  z-index: 1;
 }
 
 .navbar ul {
@@ -29,6 +30,8 @@
   font-family: 'Helvetica Neue', sans-serif;
   cursor: pointer;
   transition: color 0.3s ease;
+  word-break: keep-all;
+  white-space: nowrap;
 }
 
 .navbar button:hover {
@@ -38,17 +41,21 @@
 /* Mobile responsive */
 @media (max-width: 768px) {
   .navbar {
-    top: 1rem;
-    right: 1rem;
+    top: 10%;
+    right: 10px;
+    width: auto;
+    display: block;
   }
 
   .navbar ul {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
   }
 
   .navbar button {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    padding: 0.2rem 0.4rem;
+    text-align: right;
   }
 }
