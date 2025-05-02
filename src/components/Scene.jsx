@@ -93,39 +93,39 @@ const Scene = ({ onScrollUpdate }) => {
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <LazyFloatingPanel
-            position={[4.1, 0.3, 3.7]}
-            rotation={[0, THREE.MathUtils.degToRad(95), 0]}
+            position={[3.5, 0.3, 3.8]}
+            rotation={[0, THREE.MathUtils.degToRad(87), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
           />
 
           <LazyFloatingPanel
-            position={[2.15, 0.3, 4.7]}
-            rotation={[0, THREE.MathUtils.degToRad(83), 0]}
+            position={[0, 0.3, 4.7]}
+            rotation={[0, THREE.MathUtils.degToRad(65), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
           />
           <LazyFloatingPanel
-            position={[-0.25, 0.3, 4.75]}
-            rotation={[0, THREE.MathUtils.degToRad(67), 0]}
+            position={[-3, 0.3, 3]}
+            rotation={[0, THREE.MathUtils.degToRad(40), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
           />
           <LazyFloatingPanel
-            position={[-2.3, 0.3, 3.65]}
-            rotation={[0, THREE.MathUtils.degToRad(50), 0]}
+            position={[-4, 0.3, 0.3]}
+            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
           />
           <LazyFloatingPanel
-            position={[-3.7, 0.3, 1.9]}
-            rotation={[0, THREE.MathUtils.degToRad(30), 0]}
+            position={[-3.2, 0.3, -2.5]}
+            rotation={[0, THREE.MathUtils.degToRad(-10), 0]}
             galleryContent={galleryContent[4].RV}
             icon={galleryContent[4].Icon}
           />
           <LazyFloatingPanel
-            position={[-4, 0.3, -0.5]}
-            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
+            position={[-0, 0.3, -4.2]}
+            rotation={[0, THREE.MathUtils.degToRad(-40), 0]}
             galleryContent={galleryContent[5].PA}
             icon={galleryContent[5].Icon}
           />
