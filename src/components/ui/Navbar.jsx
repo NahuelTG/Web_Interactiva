@@ -1,6 +1,5 @@
 import scrollService from '../../service/ScrollService'
 import { useState } from 'react'
-import ResenaModal from './ResenaModal'
 import './NavBar.css'
 
 export const Navbar = () => {
@@ -28,8 +27,6 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-
-      <ResenaModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   )
 }
