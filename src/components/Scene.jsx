@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import { ScrollControls, useScroll } from '@react-three/drei'
 import * as THREE from 'three'
 import CircularPath from './CircularPath'
@@ -14,6 +14,22 @@ import scrollService from '../service/ScrollService' // Importar el servicio
 import LazyFloatingPanel from './LazyFloatingPanel'
 
 // Creamos un contexto para el control de scroll
+
+// --- Componente para reportar el scroll ---
+const ScrollReporter = ({ onScrollUpdate }) => {
+  const scroll = useScroll()
+
+  // useFrame se ejecuta en cada frame renderizado
+  useFrame(() => {
+    if (onScrollUpdate) {
+      // Llama a la función pasada desde App con el offset actual
+      onScrollUpdate(scroll.offset)
+    }
+  })
+
+  // Este componente no renderiza nada visualmente
+  return null
+}
 
 // Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
@@ -42,7 +58,7 @@ const ReverseScrollControls = (props) => {
   return props.children
 }
 
-const Scene = () => {
+const Scene = ({ onScrollUpdate }) => {
   return (
     <Canvas
       camera={{
@@ -71,6 +87,8 @@ const Scene = () => {
       >
         {/* Wrap children with ReverseScrollControls */}
         <ReverseScrollControls>
+          {/* Renderiza el ScrollReporter DENTRO de ScrollControls */}
+          <ScrollReporter onScrollUpdate={onScrollUpdate} />
           <CameraController />
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />

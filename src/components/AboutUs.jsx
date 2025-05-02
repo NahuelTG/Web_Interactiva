@@ -10,10 +10,9 @@ import SummergoLogo from '../assets/images/SummergoLogo.png'
 export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
   const texture = useLoader(TextureLoader, SummergoLogo)
   const textLines = [
-    'Somos Summergo Lab,una compañía que fusiona',
-    'arte, tecnología y cultura. Creamos experiencias',
-    'inmersivas memorables en VR, AR, y más.',
-    '¡Conectemos!',
+    'Somos un laboratorio creativo que fusiona arte, tecnología y cultura. ',
+    'Creamos experiencias inmersivas en VR, AR y más. ',
+    'Sumérgete y co-crea con nosotros.',
   ]
 
   //const iconComponents = [Instagram, Facebook, Tiktok, Email]
@@ -23,7 +22,7 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
       {/* Logo */}
       <mesh position={[0, 1.3, 0]}>
         <planeGeometry args={[0.5, 0.17]} />
-        <meshStandardMaterial map={texture} transparent opacity={1} side={THREE.DoubleSide} depthWrite={false} />
+        <meshStandardMaterial map={texture} transparent opacity={1.5} side={THREE.DoubleSide} depthWrite={false} />
       </mesh>
 
       {/* Text lines */}

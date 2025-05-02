@@ -24,6 +24,21 @@
   margin-right: auto;
 }
 
+.footer .logo {
+  /* Estilos base del logo */
+  height: 100%; /* Ajusta el tamaño según necesites */
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out; /* Transición suave para el fade */
+  /* Importante: Evita que la imagen invisible bloquee clics si hay algo debajo */
+  pointer-events: auto;
+}
+
+.footer .logo--hidden {
+  /* Estilos cuando el logo debe estar oculto */
+  opacity: 0;
+  pointer-events: none; /* La imagen oculta no será interactuable */
+}
+
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .footer ul {
