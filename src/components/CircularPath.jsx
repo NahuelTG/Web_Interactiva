@@ -24,13 +24,12 @@ const CircularPath = () => {
       {radii.map((radius, rowIndex) =>
         Array.from({ length: numSpheres }).map((_, i) => {
           const angle = (i / numSpheres) * Math.PI * 2
-          const hue = (i / numSpheres + scroll.offset) % 1 // Color dinámico
           return (
             <mesh key={`${rowIndex}-${i}`} position={[Math.cos(angle) * radius, 0, Math.sin(angle) * radius]}>
               <sphereGeometry args={[0.02, 16, 1]} />
               <meshStandardMaterial
-                color={`hsl(${hue * 360}, 70%, 50%)`}
-                emissive="#3fffff" // Luz emitida
+                color={`#00ffff`}
+                emissive="#00d4ff" // Luz emitida
                 emissiveIntensity={0.5} // Intensidad del brillo
                 metalness={0.5} // Nivel de metal
                 roughness={0.1} // Suavidad del material
