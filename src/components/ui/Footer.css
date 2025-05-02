@@ -15,7 +15,7 @@
 
 .footer__social-group {
   display: flex;
-  gap: 80px;
+  gap: 60px;
 }
 
 .logo {
@@ -39,6 +39,20 @@
   pointer-events: none; /* La imagen oculta no será interactuable */
 }
 
+.description_logo {
+  display: flex;
+  color: aliceblue;
+  justify-content: end;
+  height: 45px;
+  transform: translateX(2%);
+}
+
+.description_logo p {
+  font-size: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+}
+
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .footer ul {
@@ -56,6 +70,17 @@
   }
 
   .footer__social-group li {
-    transform: scale(0.6); /* reduce button size */
+    transform: scale(0.7); /* reduce button size */
+  }
+
+  .description_logo {
+    height: 35px;
+    transform: translateX(-4%);
+  }
+
+  .description_logo p {
+    font-size: 15px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
   }
 }

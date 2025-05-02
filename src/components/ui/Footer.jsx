@@ -17,6 +17,10 @@ export const Footer = ({ scrollOffset }) => {
 
   return (
     <div className="footer">
+      <div className="description_logo">
+        <p>Contactanos</p>
+      </div>
+
       <ul>
         <li>
           {/* Añade la clase 'logo--hidden' cuando no sea visible */}
