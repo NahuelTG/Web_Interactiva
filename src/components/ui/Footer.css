@@ -15,13 +15,42 @@
 
 .footer__social-group {
   display: flex;
-  gap: 80px;
+  gap: 60px;
 }
 
 .logo {
   width: 140px;
   height: auto;
   margin-right: auto;
+}
+
+.footer .logo {
+  /* Estilos base del logo */
+  height: 100%; /* Ajusta el tamaño según necesites */
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out; /* Transición suave para el fade */
+  /* Importante: Evita que la imagen invisible bloquee clics si hay algo debajo */
+  pointer-events: auto;
+}
+
+.footer .logo--hidden {
+  /* Estilos cuando el logo debe estar oculto */
+  opacity: 0;
+  pointer-events: none; /* La imagen oculta no será interactuable */
+}
+
+.description_logo {
+  display: flex;
+  color: aliceblue;
+  justify-content: end;
+  height: 45px;
+  transform: translateX(2%);
+}
+
+.description_logo p {
+  font-size: 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 600;
 }
 
 /* 📱 Responsive */
@@ -41,6 +70,17 @@
   }
 
   .footer__social-group li {
-    transform: scale(0.6); /* reduce button size */
+    transform: scale(0.7); /* reduce button size */
+  }
+
+  .description_logo {
+    height: 35px;
+    transform: translateX(-4%);
+  }
+
+  .description_logo p {
+    font-size: 15px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 500;
   }
 }
