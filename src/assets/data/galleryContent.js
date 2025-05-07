@@ -12,6 +12,7 @@ import MD_7 from '../images/MuseoDigital/7.webp'
 import IconMD from '../images/Icons/MUSEO.png'
 import AR_1 from '../images/AR/9.webp'
 import AR_2 from '../images/AR/11.webp'
+import AR_3 from '../images/AR/Mural.webp'
 import IconAR from '../images/Icons/AR.png'
 import AudioRuta_1 from '../images/AudioRuta/8.webp'
 import AudioRuta_2 from '../images/AudioRuta/12.webp'
@@ -117,6 +118,16 @@ export const galleryContent = [
         line_5: '',
         img: AR_2,
         link: 'https://youtu.be/3rKN5J22yQo ',
+      },
+      {
+        video_title: 'MURAL COBRA VIDA',
+        line_1: 'Observa cómo un muro de ladrillos se derrumba  ',
+        line_2: 'gracias al esfuerzo conjunto de personas',
+        line_3: 'con y sin discapacidad. Al caer la barrera',
+        line_4: 'los personajes avanzan y se revela ',
+        line_5: 'el mensaje: Avancemos juntxs.',
+        img: AR_3,
+        link: 'https://youtu.be/ziVdkfhb0IU',
       },
     ],
     Icon: IconAR,
