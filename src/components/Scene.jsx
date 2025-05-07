@@ -80,7 +80,7 @@ const Scene = ({ onScrollUpdate }) => {
 
       <ScrollControls
         pages={30}
-        damping={0.2}
+        damping={0.5}
         style={{
           position: 'absolute',
           transform: 'scaleY(-1)',
