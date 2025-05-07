@@ -86,8 +86,7 @@ const Scene = ({ onScrollUpdate }) => {
           transform: 'scaleY(-1)',
         }}
       >
-        <Preload all /> {/* <---- AÑADE ESTO AQUÍ */}
-        {/* Wrap children with ReverseScrollControls */}
+        <Preload all />
         <ReverseScrollControls>
           {/* Renderiza el ScrollReporter DENTRO de ScrollControls */}
           <ScrollReporter onScrollUpdate={onScrollUpdate} />
