@@ -14,7 +14,7 @@ const LazyFloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0
   const groupRef = useRef()
 
   // Distancias para controlar la visibilidad y la transición
-  const APPEAR_DISTANCE = 5 // Comenzar a aparecer
+  const APPEAR_DISTANCE = 5.5 // Comenzar a aparecer
 
   // Configuración de la animación con spring
   const { opacity, panelScale } = useSpring({
@@ -32,21 +32,19 @@ const LazyFloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0
   useFrame(() => {
     const distance = camera.position.distanceTo(panelPos)
 
-    // Si está entrando en rango de visibilidad
-    if (distance < APPEAR_DISTANCE && !isVisible) {
-      // Primero aseguramos que se renderice
-      setShouldRender(true)
-      // Pequeño timeout para asegurar que el componente está montado
-      setTimeout(() => {
+    if (distance < APPEAR_DISTANCE) {
+      if (!shouldRender) {
+        setShouldRender(true) // Primero, asegúrate que el DOM virtual exista
+      }
+      // Una vez que shouldRender es true, el siguiente frame o un micro-task después,
+      // el componente interno estará "listo" para la animación.
+      // Podrías incluso esperar un frame si es necesario, o simplemente activar isVisible.
+      if (shouldRender && !isVisible) {
+        // Verifica que shouldRender ya esté activo
         setIsVisible(true)
-      }, 10)
-    }
-
-    // Si está saliendo del rango de visibilidad
-    if (distance > APPEAR_DISTANCE && isVisible) {
-      // Iniciamos la animación de salida
+      }
+    } else if (distance > APPEAR_DISTANCE && isVisible) {
       setIsVisible(false)
-      // El desmontaje se hará en onRest cuando la animación termine
     }
   })
 
