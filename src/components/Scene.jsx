@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { ScrollControls, useScroll } from '@react-three/drei'
+import { ScrollControls, useScroll, Preload } from '@react-three/drei'
 import * as THREE from 'three'
 import CircularPath from './CircularPath'
 import { Particles } from './Particles'
@@ -12,6 +12,7 @@ import { galleryContent } from '../assets/data/galleryContent'
 import { AboutUs } from './AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
 import LazyFloatingPanel from './LazyFloatingPanel'
+import PropTypes from 'prop-types'
 
 // Creamos un contexto para el control de scroll
 
@@ -85,6 +86,7 @@ const Scene = ({ onScrollUpdate }) => {
           transform: 'scaleY(-1)',
         }}
       >
+        <Preload all /> {/* <---- AÑADE ESTO AQUÍ */}
         {/* Wrap children with ReverseScrollControls */}
         <ReverseScrollControls>
           {/* Renderiza el ScrollReporter DENTRO de ScrollControls */}
@@ -136,6 +138,13 @@ const Scene = ({ onScrollUpdate }) => {
       <directionalLight position={[10, 10, 5]} intensity={1} />
     </Canvas>
   )
+}
+ScrollReporter.propTypes = {
+  onScrollUpdate: PropTypes.func,
+}
+
+Scene.propTypes = {
+  onScrollUpdate: PropTypes.func,
 }
 
 export default Scene
