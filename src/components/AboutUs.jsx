@@ -24,13 +24,16 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
           'y cultura. ',
           'Creamos experiencias inmersivas ',
           'en VR, AR y más. ',
-          'Sumérgete y co-crea con nosotros.',
+          'Sumérgete y co-crea con nosotros',
         ])
       } else {
+        setSizeAbout(1)
         setTextLines([
-          'Somos un laboratorio creativo que fusiona arte, tecnología y cultura. ',
-          'Creamos experiencias inmersivas en VR, AR y más. ',
-          'Sumérgete y co-crea con nosotros.',
+          'Somos un laboratorio creativo que ',
+          'fusiona arte, tecnología y cultura. ',
+          'Creamos experiencias inmersivas ',
+          'en VR, AR y más. ',
+          'Sumérgete y co-crea con nosotros',
         ])
       }
     }

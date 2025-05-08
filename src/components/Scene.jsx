@@ -120,7 +120,7 @@ const Scene = ({ onScrollUpdate }) => {
         setPanelScale(0.5)
         setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
         setCurrentPanelRotations(panelRotations.large) // Cambia al conjunto de posiciones 'large'
-        setPositionAbout([4.7, -0.6, -1.5])
+        setPositionAbout([4.7, -0.5, -1.5])
         setRotationAbout([0, THREE.MathUtils.degToRad(200), 0])
       }
     }
