@@ -114,8 +114,8 @@ const Scene = ({ onScrollUpdate }) => {
         setPanelScale(0.3)
         setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
         setCurrentPanelRotations(panelRotations.small) // Cambia al conjunto de posiciones 'small'
-        setPositionAbout([4.775, 0.1, -1.5])
-        setRotationAbout([0, THREE.MathUtils.degToRad(190), 0])
+        setPositionAbout([4.725, 0.1, -1.5])
+        setRotationAbout([0, THREE.MathUtils.degToRad(198), 0])
       } else {
         setPanelScale(0.5)
         setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
