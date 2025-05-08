@@ -105,6 +105,8 @@ const Scene = ({ onScrollUpdate }) => {
   const [panelScale, setPanelScale] = useState(0.5)
   const [currentPanelPositions, setCurrentPanelPositions] = useState(panelPositions.large)
   const [currentPanelRotations, setCurrentPanelRotations] = useState(panelRotations.large)
+  const [PositionAbout, setPositionAbout] = useState([])
+  const [RotationAbout, setRotationAbout] = useState()
 
   useEffect(() => {
     const handleResize = () => {
@@ -112,10 +114,14 @@ const Scene = ({ onScrollUpdate }) => {
         setPanelScale(0.3)
         setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
         setCurrentPanelRotations(panelRotations.small) // Cambia al conjunto de posiciones 'small'
+        setPositionAbout([4.775, 0.1, -1.5])
+        setRotationAbout([0, THREE.MathUtils.degToRad(190), 0])
       } else {
         setPanelScale(0.5)
         setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
         setCurrentPanelRotations(panelRotations.large) // Cambia al conjunto de posiciones 'large'
+        setPositionAbout([4.7, -0.6, -1.5])
+        setRotationAbout([0, THREE.MathUtils.degToRad(200), 0])
       }
     }
 
@@ -160,7 +166,7 @@ const Scene = ({ onScrollUpdate }) => {
           <ScrollReporter onScrollUpdate={onScrollUpdate} />
           <CameraController />
           <CircularPath />
-          <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
+          <AboutUs position={PositionAbout} rotation={RotationAbout} />
           <LazyFloatingPanel
             position={currentPanelPositions[0]}
             rotation={currentPanelRotations[0]}
