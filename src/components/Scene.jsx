@@ -71,12 +71,32 @@ const panelPositions = {
     [-0, 0.3, -4.2], // Panel 6 (PA)
   ],
   small: [
-    [3.5, 0.3, 3.8], // Panel 1 (VR)
-    [0, 0.3, 4.7], // Panel 2 (MD)
-    [-3, 0.3, 3], // Panel 3 (AR)
-    [-4, 0.3, 0.3], // Panel 4 (AudioRuta)
-    [-3.2, 0.3, -2.5], // Panel 5 (RV)
-    [-0, 0.3, -4.2], // Panel 6 (PA)
+    [3, 0.35, 3.3], // Panel 1 (VR)
+    //[3.5, 0.3, 3.8]
+    [0.5, 0.35, 4.15], // Panel 2 (MD)
+    [-2.525, 0.35, 3], // Panel 3 (AR)
+    [-3.82, 0.35, 0.3], // Panel 4 (AudioRuta)
+    [-3, 0.35, -2.5], // Panel 5 (RV)
+    [-0.5, 0.35, -4.08], // Panel 6 (PA)
+  ],
+}
+
+const panelRotations = {
+  large: [
+    [0, THREE.MathUtils.degToRad(87), 0], // Panel 1 (VR)
+    [0, THREE.MathUtils.degToRad(65), 0], // Panel 2 (MD)
+    [0, THREE.MathUtils.degToRad(40), 0], // Panel 3 (AR)
+    [0, THREE.MathUtils.degToRad(10), 0], // Panel 4 (AudioRuta)
+    [0, THREE.MathUtils.degToRad(-10), 0], // Panel 5 (RV)
+    [0, THREE.MathUtils.degToRad(-40), 0], // Panel 6 (PA)
+  ],
+  small: [
+    [0, THREE.MathUtils.degToRad(75), 0], // Panel 1 (VR)
+    [0, THREE.MathUtils.degToRad(55), 0], // Panel 2 (MD)
+    [0, THREE.MathUtils.degToRad(30), 0], // Panel 3 (AR)
+    [0, THREE.MathUtils.degToRad(0), 0], // Panel 4 (AudioRuta)
+    [0, THREE.MathUtils.degToRad(-25), 0], // Panel 5 (RV)
+    [0, THREE.MathUtils.degToRad(-50), 0], // Panel 6 (PA)
   ],
 }
 
@@ -84,15 +104,18 @@ const Scene = ({ onScrollUpdate }) => {
   // State for responsive scale
   const [panelScale, setPanelScale] = useState(0.5)
   const [currentPanelPositions, setCurrentPanelPositions] = useState(panelPositions.large)
+  const [currentPanelRotations, setCurrentPanelRotations] = useState(panelRotations.large)
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setPanelScale(0.25)
+        setPanelScale(0.3)
         setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
+        setCurrentPanelRotations(panelRotations.small) // Cambia al conjunto de posiciones 'small'
       } else {
         setPanelScale(0.5)
         setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
+        setCurrentPanelRotations(panelRotations.large) // Cambia al conjunto de posiciones 'large'
       }
     }
 
@@ -140,7 +163,7 @@ const Scene = ({ onScrollUpdate }) => {
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <LazyFloatingPanel
             position={currentPanelPositions[0]}
-            rotation={[0, THREE.MathUtils.degToRad(87), 0]}
+            rotation={currentPanelRotations[0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
             scale={panelScale}
@@ -148,35 +171,35 @@ const Scene = ({ onScrollUpdate }) => {
 
           <LazyFloatingPanel
             position={currentPanelPositions[1]}
-            rotation={[0, THREE.MathUtils.degToRad(65), 0]}
+            rotation={currentPanelRotations[1]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
             scale={panelScale}
           />
           <LazyFloatingPanel
             position={currentPanelPositions[2]}
-            rotation={[0, THREE.MathUtils.degToRad(40), 0]}
+            rotation={currentPanelRotations[2]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
             scale={panelScale}
           />
           <LazyFloatingPanel
             position={currentPanelPositions[3]}
-            rotation={[0, THREE.MathUtils.degToRad(10), 0]}
+            rotation={currentPanelRotations[3]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
             scale={panelScale}
           />
           <LazyFloatingPanel
             position={currentPanelPositions[4]}
-            rotation={[0, THREE.MathUtils.degToRad(-10), 0]}
+            rotation={currentPanelRotations[4]}
             galleryContent={galleryContent[4].RV}
             icon={galleryContent[4].Icon}
             scale={panelScale}
           />
           <LazyFloatingPanel
             position={currentPanelPositions[5]}
-            rotation={[0, THREE.MathUtils.degToRad(-40), 0]}
+            rotation={currentPanelRotations[5]}
             galleryContent={galleryContent[5].PA}
             icon={galleryContent[5].Icon}
             scale={panelScale}

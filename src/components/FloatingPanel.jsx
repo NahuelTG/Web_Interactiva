@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import * as THREE from 'three'
 import { useTexture } from '@react-three/drei'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { PanelTitle } from './PanelTitle'
 import { ButtonsNavigationPanel } from './buttons/ButtonstNavigationPanel'
@@ -48,6 +48,27 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
   })
 
   //Responsive panel texts
+  const [panelTextPositition, setTextPositition] = useState([3.2, 0, 0.2])
+  const [panelTitleScale, setTitleScale] = useState(1)
+  const [panelTextRotation, setTextRotation] = useState([0, THREE.MathUtils.degToRad(-30), 0])
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setTextPositition([-1.5, -2.25, 0.2])
+        setTextRotation([0, THREE.MathUtils.degToRad(0), 0])
+        setTitleScale(0.5)
+      } else {
+        setTextPositition([3.2, 0, 0.2])
+        setTextRotation([0, THREE.MathUtils.degToRad(-30), 0])
+        setTitleScale(1)
+      }
+    }
+    handleResize()
+    // Add event listener
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <group position={position} scale={scale}>
@@ -105,8 +126,9 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
           line_5={galleryContent[targetIndex].line_5}
           video_title={galleryContent[targetIndex].video_title}
           icon={icon}
-          position={[3.2, 0, 0.2]}
-          rotation={[0, THREE.MathUtils.degToRad(-30), 0]}
+          scale={panelTitleScale}
+          position={panelTextPositition}
+          rotation={panelTextRotation}
           transitionProgress={transitionProgress} // Pasar el progreso de transición
         />
       </mesh>
