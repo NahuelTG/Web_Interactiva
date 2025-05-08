@@ -55,6 +55,9 @@
 
 /* 📱 Responsive */
 @media (max-width: 768px) {
+  .footer {
+    bottom: 5%;
+  }
   .footer ul {
     gap: 20px;
   }

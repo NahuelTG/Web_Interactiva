@@ -17,7 +17,7 @@ export const PanelTitle = ({
   icon,
   position,
   rotation,
-  scale = 1,
+  scale,
   transitionProgress,
 }) => {
   const titleRef = useRef()

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { useLoader } from '@react-three/fiber'
+import { useEffect, useState } from 'react'
 import { TextureLoader } from 'three'
 import * as THREE from 'three'
 import PropTypes from 'prop-types'
@@ -9,16 +10,46 @@ import SummergoLogo from '../assets/images/SummergoLogo.png'
 
 export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
   const texture = useLoader(TextureLoader, SummergoLogo)
-  const textLines = [
-    'Somos un laboratorio creativo que fusiona arte, tecnología y cultura. ',
-    'Creamos experiencias inmersivas en VR, AR y más. ',
-    'Sumérgete y co-crea con nosotros.',
-  ]
+  const [TextLines, setTextLines] = useState([])
 
-  //const iconComponents = [Instagram, Facebook, Tiktok, Email]
+  const [SizeAbout, setSizeAbout] = useState(1)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSizeAbout(0.25)
+        setTextLines([
+          'Somos un laboratorio creativo ',
+          'que fusiona arte, tecnología ',
+          'y cultura. ',
+          'Creamos experiencias inmersivas ',
+          'en VR, AR y más. ',
+          'Sumérgete y co-crea con nosotros',
+        ])
+      } else {
+        setSizeAbout(1)
+        setTextLines([
+          'Somos un laboratorio creativo que ',
+          'fusiona arte, tecnología y cultura. ',
+          'Creamos experiencias inmersivas ',
+          'en VR, AR y más. ',
+          'Sumérgete y co-crea con nosotros',
+        ])
+      }
+    }
+
+    // Set initial scale
+    handleResize()
+
+    // Add event listener
+    window.addEventListener('resize', handleResize)
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) // Empty dependency array means this effect runs once on mount and cleans up on unmount
 
   return (
-    <group position={position} rotation={rotation}>
+    <group position={position} rotation={rotation} scale={SizeAbout}>
       {/* Logo */}
       <mesh position={[0, 1.3, 0]}>
         <planeGeometry args={[0.5, 0.17]} />
@@ -26,7 +57,7 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
       </mesh>
 
       {/* Text lines */}
-      {textLines.map((line, i) => (
+      {TextLines.map((line, i) => (
         <Text key={i} fontSize={0.07} color="white" anchorX="center" anchorY="middle" position={[0, 1.1 - i * 0.12, 0]}>
           {line}
         </Text>
@@ -60,4 +91,5 @@ export const AboutUs = ({ position = [0, 0, 0], rotation = [0, 0, 0] }) => {
 AboutUs.propTypes = {
   position: PropTypes.array,
   rotation: PropTypes.array,
+  scale: PropTypes.number,
 }
