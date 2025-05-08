@@ -47,6 +47,8 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
     }
   })
 
+  //Responsive panel texts
+
   return (
     <group position={position} scale={scale}>
       <mesh

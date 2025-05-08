@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { ScrollControls, useScroll, Preload } from '@react-three/drei'
 import * as THREE from 'three'
@@ -59,7 +59,52 @@ const ReverseScrollControls = (props) => {
   return props.children
 }
 
+// Define las posiciones para cada tamaño de pantalla
+// Necesitarás ajustar estas posiciones 'small' según tu diseño
+const panelPositions = {
+  large: [
+    [3.5, 0.3, 3.8], // Panel 1 (VR)
+    [0, 0.3, 4.7], // Panel 2 (MD)
+    [-3, 0.3, 3], // Panel 3 (AR)
+    [-4, 0.3, 0.3], // Panel 4 (AudioRuta)
+    [-3.2, 0.3, -2.5], // Panel 5 (RV)
+    [-0, 0.3, -4.2], // Panel 6 (PA)
+  ],
+  small: [
+    [3.5, 0.3, 3.8], // Panel 1 (VR)
+    [0, 0.3, 4.7], // Panel 2 (MD)
+    [-3, 0.3, 3], // Panel 3 (AR)
+    [-4, 0.3, 0.3], // Panel 4 (AudioRuta)
+    [-3.2, 0.3, -2.5], // Panel 5 (RV)
+    [-0, 0.3, -4.2], // Panel 6 (PA)
+  ],
+}
+
 const Scene = ({ onScrollUpdate }) => {
+  // State for responsive scale
+  const [panelScale, setPanelScale] = useState(0.5)
+  const [currentPanelPositions, setCurrentPanelPositions] = useState(panelPositions.large)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setPanelScale(0.25)
+        setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
+      } else {
+        setPanelScale(0.5)
+        setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
+      }
+    }
+
+    // Set initial scale
+    handleResize()
+
+    // Add event listener
+    window.addEventListener('resize', handleResize)
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) // Empty dependency array means this effect runs once on mount and cleans up on unmount
   return (
     <Canvas
       camera={{
@@ -94,41 +139,47 @@ const Scene = ({ onScrollUpdate }) => {
           <CircularPath />
           <AboutUs position={[4.7, -0.6, -1.5]} rotation={[0, THREE.MathUtils.degToRad(200), 0]} />
           <LazyFloatingPanel
-            position={[3.5, 0.3, 3.8]}
+            position={currentPanelPositions[0]}
             rotation={[0, THREE.MathUtils.degToRad(87), 0]}
             galleryContent={galleryContent[0].VR}
             icon={galleryContent[0].Icon}
+            scale={panelScale}
           />
 
           <LazyFloatingPanel
-            position={[0, 0.3, 4.7]}
+            position={currentPanelPositions[1]}
             rotation={[0, THREE.MathUtils.degToRad(65), 0]}
             galleryContent={galleryContent[1].MD}
             icon={galleryContent[1].Icon}
+            scale={panelScale}
           />
           <LazyFloatingPanel
-            position={[-3, 0.3, 3]}
+            position={currentPanelPositions[2]}
             rotation={[0, THREE.MathUtils.degToRad(40), 0]}
             galleryContent={galleryContent[2].AR}
             icon={galleryContent[2].Icon}
+            scale={panelScale}
           />
           <LazyFloatingPanel
-            position={[-4, 0.3, 0.3]}
+            position={currentPanelPositions[3]}
             rotation={[0, THREE.MathUtils.degToRad(10), 0]}
             galleryContent={galleryContent[3].AudioRuta}
             icon={galleryContent[3].Icon}
+            scale={panelScale}
           />
           <LazyFloatingPanel
-            position={[-3.2, 0.3, -2.5]}
+            position={currentPanelPositions[4]}
             rotation={[0, THREE.MathUtils.degToRad(-10), 0]}
             galleryContent={galleryContent[4].RV}
             icon={galleryContent[4].Icon}
+            scale={panelScale}
           />
           <LazyFloatingPanel
-            position={[-0, 0.3, -4.2]}
+            position={currentPanelPositions[5]}
             rotation={[0, THREE.MathUtils.degToRad(-40), 0]}
             galleryContent={galleryContent[5].PA}
             icon={galleryContent[5].Icon}
+            scale={panelScale}
           />
         </ReverseScrollControls>
       </ScrollControls>

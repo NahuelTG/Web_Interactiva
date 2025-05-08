@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from '@react-spring/three'
 
-const LazyFloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.5 }) => {
+const LazyFloatingPanel = ({ position, rotation, galleryContent, icon, scale }) => {
   const { camera } = useThree()
   const [shouldRender, setShouldRender] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
