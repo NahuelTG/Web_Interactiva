@@ -58,7 +58,9 @@ export const ButtonsNavigationPanel = ({ position, setTargetIndex, totalItems, t
     if (transitionProgress >= 0.95) {
       setTargetIndex((prev) => {
         const newIndex = (prev + direction + totalItems) % totalItems
-        setTransitionProgress(0)
+        if (newIndex !== prev) {
+          setTransitionProgress(0)
+        }
         return newIndex
       })
     }
