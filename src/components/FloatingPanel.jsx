@@ -44,6 +44,9 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
         setCurrentIndex(targetIndex)
         setTransitionProgress(1)
       }
+    } else if (transitionProgress < 1 && currentIndex === targetIndex) {
+      const newProgress = THREE.MathUtils.damp(transitionProgress, 1, 6, delta)
+      setTransitionProgress(newProgress)
     }
   })
 
@@ -91,19 +94,27 @@ const FloatingPanel = ({ position, rotation, galleryContent, icon, scale = 0.1 }
 
         {/* Contenedor de la imagen con transición */}
         <group position={[0, 0, 0.11]} scale={[2, 2.1, 0.1]}>
-          {/* Imagen actual */}
+          {/* Imagen actual (la que se desvanece) */}
           <mesh
             onClick={(e) => {
               e.stopPropagation()
-              window.open(galleryContent[currentIndex].link, '_blank')
+              window.open(galleryContent[targetIndex].link, '_blank')
             }}
           >
             <planeGeometry args={[2, 1.2]} />
+            {/* La imagen que se desvanece sigue usando currentIndex */}
             <meshStandardMaterial map={textures[currentIndex]} transparent opacity={1 - transitionProgress} />
           </mesh>
 
-          {/* Imagen siguiente */}
-          <mesh>
+          {/* Imagen siguiente (la que aparece) */}
+
+          <mesh
+            onClick={(e) => {
+              // También podrías añadir el onClick aquí por si acaso, aunque el de arriba debería cubrirlo
+              e.stopPropagation()
+              window.open(galleryContent[targetIndex].link, '_blank')
+            }}
+          >
             <planeGeometry args={[2, 1.2]} />
             <meshStandardMaterial map={textures[targetIndex]} transparent opacity={transitionProgress} />
           </mesh>
