@@ -40,8 +40,8 @@ export const galleryContent = [
       },
       {
         video_title: 'DOCUMENTAL 360°',
-        line_1: 'Amazonía boliviana',
-        line_2: 'Sumérgete..',
+        line_1: 'Amazonía boliviana:',
+        line_2: 'sumérgete en la ruta de la castaña',
         line_3: '',
         line_4: '',
         line_5: '',
