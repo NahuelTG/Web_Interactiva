@@ -39,7 +39,7 @@
   padding: 2rem;
   overflow-y: auto;
   color: white;
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   flex: 1;
 }
@@ -69,6 +69,7 @@
   overflow-x: auto;
   margin-top: 1rem;
   border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
   background-color: #111122;
   border: 1px solid #00d4ff;
 }

@@ -33,7 +33,7 @@ export const galleryContent = [
         line_1: 'Viaja en una máquina del tiempo, ',
         line_2: 'sumérgete en el hábitat del cretácico',
         line_3: 'y descubre cómo se formó ',
-        line_4: 'el Farallón de Cal Orko',
+        line_4: 'el Farallón de Cal Orcko',
         line_5: '',
         img: VR_1,
         link: 'https://youtu.be/VCJFPE6fOqQ',
@@ -160,7 +160,7 @@ export const galleryContent = [
   {
     RV: [
       {
-        video_title: 'LEER EL CIELO',
+        video_title: 'EXHIBICIÓN INMERSIVA',
         line_1: 'Cinco constelaciones conectan el Universo con la',
         line_2: 'Tierra, influyendo en los ciclos de la agricultura',
         line_3: 'y la vida. El viaje a la Vía Láctea sigue el ritmo',
@@ -170,7 +170,7 @@ export const galleryContent = [
         link: 'https://youtu.be/O5UTM-V1pQ0',
       },
       {
-        video_title: 'PASEO CON DINOSAURIOS',
+        video_title: 'EXHIBICIÓN INMERSIVA',
         line_1: 'Explora el patrimonio paleontológico ',
         line_2: 'de Bolivia y su relación con la edad ',
         line_3: 'de la tierra y nuestro paso ',
@@ -195,7 +195,7 @@ export const galleryContent = [
         link: 'https://youtu.be/X6ltlGx1bjM?si=sovWK9yF3JjLYNCd',
       },
       {
-        video_title: 'DOCUMENTAL',
+        video_title: 'STOP MOTION',
         line_1: 'Un accidente en un pozo abandonado ',
         line_2: 'en el altiplano andino cobra ',
         line_3: 'la vida de dos niñas, revelando ',
@@ -205,7 +205,7 @@ export const galleryContent = [
         link: 'https://youtu.be/3Lp4hVrNtKs?si=d2Zigcgjwlukzscs',
       },
       {
-        video_title: 'DOCUMENTAL',
+        video_title: 'VIDEO ARTE',
         line_1: 'Visibiliza el arte textil de las mujeres ',
         line_2: 'Jalq’as como expresión de una cultura ',
         line_3: 'viva, rescatando saberes ancestrales ',

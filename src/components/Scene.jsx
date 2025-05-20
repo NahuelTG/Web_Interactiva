@@ -114,13 +114,13 @@ const Scene = ({ onScrollUpdate }) => {
         setPanelScale(0.3)
         setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
         setCurrentPanelRotations(panelRotations.small) // Cambia al conjunto de posiciones 'small'
-        setPositionAbout([4.725, 0.1, -1.5])
+        setPositionAbout([4.825, 0.1, -1.5])
         setRotationAbout([0, THREE.MathUtils.degToRad(198), 0])
       } else {
         setPanelScale(0.5)
         setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
         setCurrentPanelRotations(panelRotations.large) // Cambia al conjunto de posiciones 'large'
-        setPositionAbout([4.7, -0.5, -1.5])
+        setPositionAbout([5, -0.5, -1.5])
         setRotationAbout([0, THREE.MathUtils.degToRad(200), 0])
       }
     }
