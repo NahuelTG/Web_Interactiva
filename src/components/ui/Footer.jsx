@@ -18,7 +18,7 @@ export const Footer = ({ scrollOffset }) => {
   return (
     <div className="footer">
       <div className="description_logo">
-        <p>Contactanos</p>
+        <p>Contáctanos:</p>
       </div>
 
       <ul>
