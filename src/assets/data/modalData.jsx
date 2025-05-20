@@ -45,7 +45,7 @@ export const modalInfo = {
     ),
   },
   exposiciones: {
-    title: 'EXPOSICIONES',
+    title: 'EXHIBICIONES',
     content: (
       <>
         <p>Ha exhibido en los museos más importantes del país:</p>
