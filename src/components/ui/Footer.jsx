@@ -28,17 +28,20 @@ export const Footer = ({ scrollOffset }) => {
         </li>
         <div className="footer__social-group">
           {/* ... tus botones sociales ... */}
-          <li className="footer__instagram">
+          <li>
             <SocialButton type={'email'} />
           </li>
-          <li className="footer__instagram">
+          <li>
             <SocialButton type={'instagram'} />
           </li>
-          <li className="footer__facebook">
+          <li>
             <SocialButton type={'facebook'} />
           </li>
-          <li className="footer__tiktok">
+          <li>
             <SocialButton type={'tiktok'} />
+          </li>
+          <li>
+            <SocialButton type={'whatsapp'} />
           </li>
         </div>
       </ul>

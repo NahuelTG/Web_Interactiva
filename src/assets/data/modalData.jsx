@@ -4,6 +4,7 @@ export const modalInfo = {
     title: 'ACERCA DE NOSOTROS',
     content: (
       <>
+        <hr style={{ borderColor: 'rgba(0, 212, 255, 0.5)', margin: '20px 0' }} />
         <p>
           Somos un laboratorio creativo que une tecnología y patrimonio, implementamos{' '}
           <strong style={{ color: '#00d4ff' }}>experiencias inmersivas</strong> de{' '}
@@ -28,19 +29,6 @@ export const modalInfo = {
         </p>
 
         {/* Línea divisoria opcional para separar el contenido principal del contacto */}
-        <hr style={{ borderColor: 'rgba(0, 212, 255, 0.5)', margin: '20px 0' }} />
-        <p>
-          <strong>Neysa Rivadineira</strong>
-          <br />
-          <a
-            href="https://wa.me/59177138874" // El número sin el '+' inicial para el link de WhatsApp
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#00d4ff', textDecoration: 'none' }} // Mismo color que los otros resaltados
-          >
-            Contactar por WhatsApp (+591 77138874)
-          </a>
-        </p>
       </>
     ),
   },
@@ -48,6 +36,7 @@ export const modalInfo = {
     title: 'EXHIBICIONES',
     content: (
       <>
+        <hr style={{ borderColor: 'rgba(0, 212, 255, 0.5)', margin: '20px 0' }} />
         <p>Ha exhibido en los museos más importantes del país:</p>
         <ul>
           <li>Museo Nacional de Paleontología y Arqueología de Tarija</li>
@@ -154,6 +143,7 @@ export const modalInfo = {
     title: 'RECONOCIMIENTOS',
     content: (
       <>
+        <hr style={{ borderColor: 'rgba(0, 212, 255, 0.5)', margin: '20px 0' }} />
         <p>
           Summergō, laboratorio creativo que cuenta con más de 10 años de experiencia en la narración de historias a través de
           audiovisuales, animación y experiencias inmersivas. Sus producciones han recibido reconocimientos, entre ellos:

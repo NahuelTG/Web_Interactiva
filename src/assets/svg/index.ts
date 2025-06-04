@@ -3,6 +3,7 @@ export * from './Instagram'
 export * from './Tiktok'
 export * from './Summergo'
 export * from './Email'
+export * from './WhatsApp'
 //Iconos
 export * from './AR'
 export * from './VR'
