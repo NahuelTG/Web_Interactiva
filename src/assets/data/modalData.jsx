@@ -65,77 +65,115 @@ export const modalInfo = {
           </li>
           <li>SELECCIÓN OFICIAL de #NarrarElFuturo: X Festival de Cine & Nuevos Medios Bogotá Colombia, 10 al 15 de septiembre de 2024</li>
         </ul>
-
-        <h4>VR WASI</h4>
         <ul>
-          <li>SELECCIÓN OFICIAL Mejor Cortometraje 360 y Categoría Poderosas</li>
-          <li>Perú, enero 2025</li>
+          <li>
+            <strong>VR WASI</strong>
+            <br />
+            SELECCIÓN OFICIAL Mejor Cortometraje 360 y Categoría Poderosas
+            <br />
+            Perú, enero 2025
+          </li>
         </ul>
 
-        <h4>Curaduría Latinoamericana, selección oficial obra “Portal Bolivia VR”</h4>
         <ul>
-          <li>Museo Nacional de Bellas Artes Santiago de Chile - MICSUR</li>
-          <li>Chile, 17 al 20 de abril de 2024</li>
+          <li>
+            <strong>Curaduría Latinoamericana, selección oficial obra “Portal Bolivia VR”</strong>
+            <br />
+            Museo Nacional de Bellas Artes Santiago de Chile - MICSUR
+            <br />
+            Chile, 17 al 20 de abril de 2024
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <strong>Ruta sonora inmersiva: El Tesoro Escondido de Tanga Tanga</strong>
+            <br />
+            Festival Sur Aural - Inteligencia Orgánica
+            <br />
+            Transmisión 09, del 1 al 13 de julio de 2024
+          </li>
         </ul>
 
-        <h4>Ruta sonora inmersiva: El Tesoro Escondido de Tanga Tanga</h4>
         <ul>
-          <li>Festival Sur Aural - Inteligencia Orgánica</li>
-          <li>Transmisión 09, del 1 al 13 de julio de 2024</li>
+          <li>
+            <strong>Cortometraje stop motion “Dos niñas” - Selección oficial</strong>
+            <br />
+            Comunidad Cinéfila Argentina
+            <br />
+            Buenos Aires, agosto 2024
+          </li>
         </ul>
 
-        <h4>Cortometraje stop motion “Dos niñas” - Selección oficial</h4>
         <ul>
-          <li>Comunidad Cinéfila Argentina</li>
-          <li>Buenos Aires, agosto 2024</li>
+          <li>
+            <strong>Cortometraje stop motion “Mujeres de Urdiembre” - Selección Oficial</strong>
+            <br />
+            Cortometraje stop motion “Dos niñas” - Mención Especial
+            <br />
+            Exhibición nacional “Visionado del Videoarte Boliviano”
+            <br />
+            La Paz, Cochabamba, Santa Cruz del 6 al 14 de junio de 2024
+          </li>
         </ul>
 
-        <h4>Exhibición nacional “Visionado del Videoarte Boliviano”</h4>
         <ul>
-          <li>Cortometraje stop motion “Mujeres de Urdiembre” - Selección Oficial</li>
-          <li>Cortometraje stop motion “Dos niñas” - Mención Especial</li>
-          <li>La Paz, Cochabamba, Santa Cruz del 6 al 14 de junio de 2024</li>
+          <li>
+            <strong>Performance teatral “Ñanta Awaspa”</strong>
+            <br />
+            Mapping Cocreación con el Teatro de Los Andes
+            <br />
+            Casa de la Libertad (Sucre), Comunidad Potolo (Chuquisaca), Teatro Nuna (La Paz), Sede teatro de Los Andes (Yotala)
+            <br />
+            Gira Nacional Bolivia, abril a junio 2024
+          </li>
         </ul>
 
-        <h4>Performance teatral “Ñanta Awaspa”</h4>
         <ul>
-          <li>Mapping Cocreación con el Teatro de Los Andes</li>
-          <li>Casa de la Libertad (Sucre), Comunidad Potolo (Chuquisaca), Teatro Nuna (La Paz), Sede teatro de Los Andes (Yotala)</li>
-          <li>Gira Nacional Bolivia, abril a junio 2024</li>
+          <li>
+            <strong>Exhibición inmersiva: Paseo con dinosaurios</strong>
+            <br />
+            Librería La Audacia
+            <br />
+            La Paz, 13 y 14 de julio 2024
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <strong>Proyecto inmersivo VR y AR “Leer el cielo”</strong>
+            <br />
+            Warmi Fílmica- Antawara CineLab
+            <br />
+            Cochabamba, julio 2024
+          </li>
         </ul>
 
-        <h4>Cortometraje stop motion “Mujeres de Urdiembre” - Selección Oficial</h4>
         <ul>
-          <li>Festival Lift-Off Global Network sesiones New Voices P1</li>
-          <li>Selección internacional, Julio 2024</li>
+          <li>
+            <strong>Museo Carnaval de Antaño de Sucre VR - Portal Bolivia VR</strong>
+            <br />
+            Muestra artística “Piedra y Color” Galería Gíldaro Antezana
+            <br />
+            Cochabamba, 24 de junio al 07 de julio 2024
+          </li>
         </ul>
-
-        <h4>Exhibición inmersiva: Paseo con dinosaurios</h4>
         <ul>
-          <li>Librería La Audacia</li>
-          <li>La Paz, 13 y 14 de julio 2024</li>
+          <li>
+            <strong>Amazonía boliviana, documentales en 360° “Ruta del Asaí, Cacao y Castaña”</strong>
+            <br />
+            Museo de la Biodiversidad Bolivia CIBIOMA
+            <br />
+            Beni, 17 de mayo 2024
+          </li>
         </ul>
-
-        <h4>Proyecto inmersivo VR y AR “Leer el cielo”</h4>
         <ul>
-          <li>Warmi Fílmica- Antawara CineLab</li>
-          <li>Cochabamba, julio 2024</li>
+          <li>
+            {' '}
+            <strong>Festival Latinoamericano de Cortometrajes de Animación EDA - 2024 (Dos obras)</strong>
+          </li>
+          <li>
+            <strong>Festival Nacional Día Video Arte Boliviano (2024).</strong>
+          </li>
         </ul>
-
-        <h4>Museo Carnaval de Antaño de Sucre VR - Portal Bolivia VR</h4>
-        <ul>
-          <li>Muestra artística “Piedra y Color” Galería Gíldaro Antezana</li>
-          <li>Cochabamba, 24 de junio al 07 de julio 2024</li>
-        </ul>
-
-        <h4>Amazonía boliviana, documentales en 360° “Ruta del Asaí, Cacao y Castaña”</h4>
-        <ul>
-          <li>Museo de la Biodiversidad Bolivia CIBIOMA</li>
-          <li>Beni, 17 de mayo 2024</li>
-        </ul>
-
-        <h4>Festival Latinoamericano de Cortometrajes de Animación EDA - 2024 (Dos obras)</h4>
-        <h4>Festival Nacional Día Video Arte Boliviano (2024).</h4>
       </>
     ),
   },
