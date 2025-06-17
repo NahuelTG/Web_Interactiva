@@ -206,5 +206,4 @@ export const modalInfo = {
       </>
     ),
   },
-  // Puedes añadir más secciones aquí en el futuro
 }

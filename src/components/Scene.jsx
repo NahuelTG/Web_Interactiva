@@ -9,9 +9,9 @@ import FloatingText from './FloatingText'
 import BackgroundParticles from './BackgroundParticles'
 import { CameraController } from './CameraController'
 import { galleryContent } from '../assets/data/galleryContent'
-import { AboutUs } from './AboutUs'
+import { AboutUs } from './panels/AboutUs'
 import scrollService from '../service/ScrollService' // Importar el servicio
-import LazyFloatingPanel from './LazyFloatingPanel'
+import LazyFloatingPanel from './panels/LazyFloatingPanel'
 import PropTypes from 'prop-types'
 
 // Creamos un contexto para el control de scroll
