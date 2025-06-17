@@ -44,3 +44,41 @@
   display: flex;
   justify-content: center;
 }
+
+.begin-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: clamp(1rem, 8vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #fff, rgb(0, 162, 255), #fff);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine-effect 4s linear infinite;
+}
+@keyframes shine-effect {
+  to {
+    background-position: -200% center;
+  }
+}
+
+.welcome-text {
+  line-height: 1.5;
+  color: #cdd5de;
+  max-width: 250px;
+  margin-top: -1rem;
+}
+
+.welcome-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}

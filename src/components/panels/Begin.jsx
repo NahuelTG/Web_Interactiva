@@ -14,12 +14,17 @@ export const Begin = () => {
     <>
       <Modal isOpen={isModalOpen} onClose={handleContinuar} begin={true}>
         <div className="begin-modal-content">
-          <p>Para poder avanzar, desplázate hacia abajo.</p>
+          <h1 className="welcome-title">SUMÉRGETE</h1>
+          <p className="welcome-text">
+            Te damos la bienvenida a <strong>Summergo</strong>. Estás a punto de entrar a un mundo interactivo en 3D. Para comenzar tu
+            viaje, desliza hacia abajo.
+          </p>
           <ScrollHint />
         </div>
+
         <div className="section-btn">
           <button className="btn-solid-glow" onClick={handleContinuar}>
-            Continuar
+            Empezar
           </button>
         </div>
       </Modal>
