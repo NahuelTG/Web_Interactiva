@@ -1,5 +1,6 @@
 import Modal from '../ui/Modal'
 import { useState } from 'react'
+import './Begin.css'
 
 export const Begin = () => {
   const [OpenModal, setOpenModal] = useState(true)
@@ -12,7 +13,14 @@ export const Begin = () => {
     <>
       <Modal isOpen={OpenModal} onClose={Continuar}>
         <p>Hoola</p>
-        <button onClick={Continuar}>Continuar</button>
+        <button
+          className="btn-solid-glow"
+          onClick={() => {
+            Continuar()
+          }}
+        >
+          Continuar
+        </button>
       </Modal>
     </>
   )
