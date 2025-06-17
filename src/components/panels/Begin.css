@@ -1,5 +1,22 @@
+/* Contenedor para el texto y la pista de scroll dentro del modal */
+.begin-modal-content {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center; /* Centra los elementos horizontalmente */
+  gap: 1.5rem; /* Espacio entre el texto y el icono (24px) */
+  text-align: center;
+  margin-bottom: 2rem; /* Espacio entre el contenido y el botón "Continuar" */
+}
+
+/* Estilo para el párrafo de instrucción */
+.begin-modal-content p {
+  font-size: 1.125rem; /* 18px, un poco más grande */
+  color: #e0e0e0; /* Un color gris claro que funciona bien en fondos oscuros */
+  max-width: 300px; /* Evita que el texto sea demasiado ancho en pantallas grandes */
+}
+
+/* --- Estilo del botón "btn-solid-glow" que pediste antes --- */
 .btn-solid-glow {
-  /* --- Estructura y tipografía --- */
   padding: 12px 24px;
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 1rem;
@@ -7,19 +24,23 @@
   border-radius: 8px;
   cursor: pointer;
   border: none;
-  background-color: #00c4eb;
+  background-color: rgb(0, 162, 255);
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(0, 162, 255, 0.308);
   transition: all 0.3s ease-in-out;
 }
 
 .btn-solid-glow:hover {
-  box-shadow: 0 3px 15px rgba(0, 162, 255, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 162, 255, 0.5);
   transform: translateY(-2px);
 }
 
-/* --- Estado Active (al hacer clic) --- */
 .btn-solid-glow:active {
   transform: translateY(0);
   box-shadow: 0 2px 10px rgba(0, 162, 255, 0.3);
+}
+
+.section-btn {
+  display: flex;
+  justify-content: center;
 }
