@@ -1,0 +1,17 @@
+.btn_sound {
+  position: fixed;
+  left: 2.5%;
+  top: 2.5%;
+  padding: 12px;
+  cursor: pointer;
+  background-color: rgb(0, 162, 255);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 162, 255, 0.308);
+  transition: all 0.3s ease-in-out;
+  border-radius: 100%;
+}
+
+.btn_sound:hover {
+  box-shadow: 0 6px 25px rgba(0, 162, 255, 0.5);
+  transform: translateY(-2px);
+}
