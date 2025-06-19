@@ -17,7 +17,7 @@ export const Begin = () => {
           <h1 className="welcome-title">SUMÉRGETE</h1>
           <p className="welcome-text">
             Te damos la bienvenida a <strong>Summergo</strong>. Estás a punto de entrar a un mundo interactivo en 3D. Para comenzar tu
-            viaje, desliza hacia abajo.
+            viaje, desliza hacia arriba.
           </p>
           <ScrollHint />
         </div>
