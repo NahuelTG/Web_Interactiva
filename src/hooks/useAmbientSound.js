@@ -1,20 +1,27 @@
 import { Howl } from 'howler'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 
 export const useAmbientSound = () => {
   const sound = useRef(null)
 
-  if (!sound.current) {
-    sound.current = new Howl({
-      src: ['src/assets/sounds/Ambient.mp3'],
-      autoplay: true,
-      loop: true,
-      volume: 0.5,
-    })
+  useEffect(() => {
+    if (!sound.current) {
+      sound.current = new Howl({
+        src: ['src/assets/sounds/Ambient.mp3'],
+        autoplay: true,
+        loop: true,
+        volume: 0.5,
+      })
+    }
+  }, [])
+
+  const mute = () => {
+    sound.current?.mute(true)
   }
 
-  const play = () => {
-    sound.current?.play()
+  const unmute = () => {
+    sound.current?.mute(false)
   }
-  return { play }
+
+  return { mute, unmute }
 }
