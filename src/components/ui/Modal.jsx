@@ -1,11 +1,25 @@
-// src/components/Modal/Modal.js
-import './Modal.css'
+import { useWindowSize } from '../../hooks/useWindowSize'
 import PropTypes from 'prop-types'
+import './Modal.css'
 
 const Modal = ({ isOpen, onClose, children, begin = false }) => {
-  if (!isOpen) return null
+  const { width } = useWindowSize()
 
-  const modalSize = begin === true ? '30%' : '80%'
+  let modalSize = ''
+
+  if (begin) {
+    if (width < 1350 && width >= 1001) {
+      modalSize = '40%'
+    } else if (width < 1000 && width >= 769) {
+      modalSize = '60%'
+    } else if (width < 768) {
+      modalSize = '80%'
+    } else {
+      modalSize = begin === true ? '30%' : '80%'
+    }
+  }
+
+  if (!isOpen) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>

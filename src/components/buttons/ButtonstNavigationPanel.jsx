@@ -144,10 +144,7 @@ ButtonsNavigationPanel.propTypes = {
   totalItems: PropTypes.number,
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.oneOfType([
-        PropTypes.string, // Para rutas estáticas
-        PropTypes.object, // Para módulos importados (como las imágenes importadas)
-      ]).isRequired,
+      src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
       link: PropTypes.string.isRequired,
     })
   ).isRequired,

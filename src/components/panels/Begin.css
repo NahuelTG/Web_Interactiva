@@ -1,21 +1,17 @@
-/* Contenedor para el texto y la pista de scroll dentro del modal */
 .begin-modal-content {
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center; /* Centra los elementos horizontalmente */
-  gap: 1.5rem; /* Espacio entre el texto y el icono (24px) */
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   text-align: center;
-  margin-bottom: 2rem; /* Espacio entre el contenido y el botón "Continuar" */
+  margin-bottom: 2rem;
 }
 
-/* Estilo para el párrafo de instrucción */
 .begin-modal-content p {
-  font-size: 1.125rem; /* 18px, un poco más grande */
-  color: #e0e0e0; /* Un color gris claro que funciona bien en fondos oscuros */
-  max-width: 300px; /* Evita que el texto sea demasiado ancho en pantallas grandes */
+  font-size: 1.125rem;
+  color: #e0e0e0;
+  max-width: 300px;
 }
-
-/* --- Estilo del botón "btn-solid-glow" que pediste antes --- */
 .btn-solid-glow {
   padding: 12px 24px;
   font-family: system-ui, -apple-system, sans-serif;
@@ -81,4 +77,7 @@
 .welcome-text strong {
   color: #ffffff;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
 }
