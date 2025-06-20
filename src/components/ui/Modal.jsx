@@ -1,22 +1,34 @@
-// src/components/Modal/Modal.js
-import './Modal.css'
+import { useWindowSize } from '../../hooks/useWindowSize'
 import PropTypes from 'prop-types'
+import './Modal.css'
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, begin = false }) => {
+  const { width } = useWindowSize()
+
+  let modalSize = ''
+
+  if (begin) {
+    if (width < 1350 && width >= 1001) {
+      modalSize = '40%'
+    } else if (width < 1000 && width >= 769) {
+      modalSize = '60%'
+    } else if (width < 768) {
+      modalSize = '80%'
+    } else {
+      modalSize = begin === true ? '30%' : '80%'
+    }
+  }
+
   if (!isOpen) return null
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       {' '}
-      {/* Cierra al hacer clic en el overlay */}
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ paddingTop: 48 }}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ paddingTop: 48, maxWidth: modalSize }}>
         {' '}
-        {/* Evita que el clic en el contenido cierre el modal */}
         <button className="modal-close" onClick={onClose}>
           ✕
         </button>
-        {/* Añadimos un contenedor opcional para el título si no viene en children */}
-        {/* O mejor, dejamos que el NavBar pase el título como parte de children */}
         <div className="modal-body" style={{ paddingTop: 0 }}>
           {children}
         </div>
@@ -29,6 +41,7 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
+  begin: PropTypes.bool.isRequired,
 }
 
 export default Modal
