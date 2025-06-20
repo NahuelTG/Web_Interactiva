@@ -10,9 +10,10 @@ export const useAmbientSound = () => {
         src: ['src/assets/sounds/Ambient.mp3'],
         autoplay: true,
         loop: true,
-        volume: 0.5,
+        volume: 0,
       })
     }
+    sound.current.fade(0, 0.5, 5000)
   }, [])
 
   const mute = () => {
