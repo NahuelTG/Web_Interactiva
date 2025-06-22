@@ -7,7 +7,7 @@ export const useAmbientSound = () => {
   useEffect(() => {
     if (!sound.current) {
       sound.current = new Howl({
-        src: ['src/assets/sounds/Ambient.mp3'],
+        src: ['src/assets/sounds/ambient.mp3'],
         autoplay: true,
         loop: true,
         volume: 0,
