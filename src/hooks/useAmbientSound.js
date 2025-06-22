@@ -1,5 +1,6 @@
 import { Howl } from 'howler'
 import { useRef, useEffect } from 'react'
+import ambientSound from '../assets/sounds/ambient.mp3'
 
 export const useAmbientSound = () => {
   const sound = useRef(null)
@@ -7,7 +8,7 @@ export const useAmbientSound = () => {
   useEffect(() => {
     if (!sound.current) {
       sound.current = new Howl({
-        src: ['src/assets/sounds/ambient.mp3'],
+        src: [ambientSound],
         autoplay: true,
         loop: true,
         volume: 0,
