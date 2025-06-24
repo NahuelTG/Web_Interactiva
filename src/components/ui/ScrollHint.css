@@ -1,4 +1,11 @@
+/* src/components/ui/ScrollHint.css */
+
 .scroll-hint {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,10 +19,11 @@
 }
 
 .scroll-hint__icon-container {
-  scale: 1.5;
   animation: bounceUpDown 1.8s ease-in-out infinite;
+  padding-bottom: 0px;
 }
 
+/* Animación de rebote */
 @keyframes bounceUpDown {
   0%,
   100% {
@@ -23,5 +31,11 @@
   }
   50% {
     transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-hint {
+    bottom: 150px;
   }
 }
