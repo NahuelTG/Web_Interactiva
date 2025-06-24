@@ -14,36 +14,25 @@ import scrollService from '../service/ScrollService' // Importar el servicio
 import LazyFloatingPanel from './panels/LazyFloatingPanel'
 import PropTypes from 'prop-types'
 
-// Creamos un contexto para el control de scroll
-
-// --- Componente para reportar el scroll ---
 const ScrollReporter = ({ onScrollUpdate }) => {
   const scroll = useScroll()
-
-  // useFrame se ejecuta en cada frame renderizado
   useFrame(() => {
     if (onScrollUpdate) {
-      // Llama a la función pasada desde App con el offset actual
       onScrollUpdate(scroll.offset)
     }
   })
-
-  // Este componente no renderiza nada visualmente
   return null
 }
 
-// Custom ScrollControls wrapper to reverse scroll direction
 const ReverseScrollControls = (props) => {
   const scroll = useScroll()
 
   useEffect(() => {
-    // Registrar el elemento de scroll en el servicio
     if (scroll && scroll.el) {
       scrollService.setScrollElement(scroll.el)
     }
 
     const handleWheel = (event) => {
-      // Reverse the scroll direction
       event.preventDefault()
       scroll.el.scrollTop -= event.deltaY
     }
@@ -59,8 +48,6 @@ const ReverseScrollControls = (props) => {
   return props.children
 }
 
-// Define las posiciones para cada tamaño de pantalla
-// Necesitarás ajustar estas posiciones 'small' según tu diseño
 const panelPositions = {
   large: [
     [3.5, 0.3, 3.8], // Panel 1 (VR)
@@ -112,28 +99,23 @@ const Scene = ({ onScrollUpdate }) => {
     const handleResize = () => {
       if (window.innerWidth < 768) {
         setPanelScale(0.3)
-        setCurrentPanelPositions(panelPositions.small) // Cambia al conjunto de posiciones 'small'
-        setCurrentPanelRotations(panelRotations.small) // Cambia al conjunto de posiciones 'small'
+        setCurrentPanelPositions(panelPositions.small)
+        setCurrentPanelRotations(panelRotations.small)
         setPositionAbout([4.825, 0.1, -1.5])
         setRotationAbout([0, THREE.MathUtils.degToRad(198), 0])
       } else {
         setPanelScale(0.5)
-        setCurrentPanelPositions(panelPositions.large) // Cambia al conjunto de posiciones 'large'
-        setCurrentPanelRotations(panelRotations.large) // Cambia al conjunto de posiciones 'large'
+        setCurrentPanelPositions(panelPositions.large)
+        setCurrentPanelRotations(panelRotations.large)
         setPositionAbout([5, -0.5, -1.5])
         setRotationAbout([0, THREE.MathUtils.degToRad(200), 0])
       }
     }
-
-    // Set initial scale
     handleResize()
-
-    // Add event listener
     window.addEventListener('resize', handleResize)
 
-    // Clean up event listener on component unmount
     return () => window.removeEventListener('resize', handleResize)
-  }, []) // Empty dependency array means this effect runs once on mount and cleans up on unmount
+  }, [])
   return (
     <Canvas
       camera={{
@@ -162,7 +144,6 @@ const Scene = ({ onScrollUpdate }) => {
       >
         <Preload all />
         <ReverseScrollControls>
-          {/* Renderiza el ScrollReporter DENTRO de ScrollControls */}
           <ScrollReporter onScrollUpdate={onScrollUpdate} />
           <CameraController />
           <CircularPath />
