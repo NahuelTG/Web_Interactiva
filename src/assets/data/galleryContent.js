@@ -103,7 +103,7 @@ export const galleryContent = [
         video_title: 'REALIDAD AUMENTADA',
         line_1: '¿Qué mensaje escondieron las Heroínas de la Coronilla',
         line_2: 'al saber que ya no están en los nuevos billetes?',
-        line_3: 'Descúbleto en billetes de 10 bolivianos',
+        line_3: 'Descúbrelo en billetes de 10 bolivianos',
         line_4: 'de tiraje antiguo',
         line_5: '',
         img: AR_1,
